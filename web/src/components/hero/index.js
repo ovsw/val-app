@@ -35,7 +35,7 @@ const Hero = () => {
 
       {/* <!-- Hero Slider Single  --> */}
       <div className='heroslider animated-heroslider'>
-        <div className='heroSliderBg d-flex align-items-center' style={{backgroundImage: "url('/images/bg/background-image-3.jpg')"}} data-secondary-overlay='8'>
+        <div className='heroSliderBg d-flex align-items-center' style={{backgroundImage: "url('/images/bg/background-image-3s.jpg')"}} data-secondary-overlay='8'>
 
           <div className='container py-5'>
             <div className='row justify-content-center'>
@@ -57,7 +57,7 @@ const Hero = () => {
 
       {/* <!-- Hero Slider Single --> */}
       {/* <div className='heroslider animated-heroslider'>
-        <div className='heroSliderBg d-flex align-items-center' style={{backgroundImage: "url('/images/bg/background-image-3.jpg')"}} data-secondary-overlay='8'>
+        <div className='heroSliderBg d-flex align-items-center' style={{backgroundImage: "url('/images/bg/background-image-3s.jpg')"}} data-secondary-overlay='8'>
 
           <div className='container py-5'>
             <div className='row align-items-center'>
@@ -107,7 +107,7 @@ const Hero = () => {
 
       {/* <!-- Hero Slider Single --> */}
       <div className='heroslider animated-heroslider'>
-        <div className='heroSliderBg d-flex align-items-center' style={{backgroundImage: "url('/images/bg/background-image-3.jpg')"}}data-secondary-overlay='8'>
+        <div className='heroSliderBg d-flex align-items-center' style={{backgroundImage: "url('/images/bg/background-image-3s.jpg')"}}data-secondary-overlay='8'>
 
           <div className='container py-5'>
             <div className='row'>
