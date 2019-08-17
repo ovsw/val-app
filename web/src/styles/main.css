@@ -4407,7 +4407,7 @@ select {
   margin-bottom: 0;
   font-weight: 700;
 }
-.about-content h4 {
+.about-content h2 {
   color: var(--main-accentColor);
 }
 .about-content ul {
