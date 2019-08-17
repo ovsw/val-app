@@ -9,9 +9,16 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
   <header className='header'>
 
     {/*  Header Top Area  */}
-    {/* <div className='header-toparea'>
+    <div className='header-toparea'>
       <div className='container'>
-        <div className='row justify-content-betwween'>
+
+        {/*  Header Logo */}
+        <a href='index.html' className='header-logo'>
+          <img src='/images/logo/logo.png' alt='VA Loans For Vets' />
+        </a>
+        {/* Header Logo */}
+
+        {/* <div className='row justify-content-betwween'>
           <div className='col-lg-6'>
             <ul className='header-topcontact'>
               <li><i className='zmdi zmdi-phone' /> PHONE : <a href='#'>123412341</a></li>
@@ -24,21 +31,15 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
               <li><a href='#'>NEED AN AGENT</a></li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
-    </div> */}
+    </div>
     {/*  Header Top Area */}
 
     {/*  Header Bottom Area */}
     <div className='header-bottomarea'>
       <div className='container'>
         <div className='header-bottom'>
-
-          {/*  Header Logo */}
-          <a href='index.html' className='header-logo'>
-            <img src='/images/logo/logo.png' alt='header image' />
-          </a>
-          {/* Header Logo */}
 
           {/*  Main Navigation */}
           <MainNav />
