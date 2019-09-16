@@ -4869,8 +4869,14 @@ select {
   }
 }
 
+.footer-contact-area {
+  position: relative;
+  z-index: 100;
+}
+
 .footer-inner {
-  background: rgba(22, 57, 99, 0.95) url(/images/bg/footer-bg-dots.png);
+  background: rgba(22, 57, 99, 0.95) url(/images/bg/footer-bg.jpg) center center;
+  background-size: cover;
   padding-top: 155px;
 }
 

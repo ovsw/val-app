@@ -11,7 +11,9 @@ const Footer = () => (
       <div className='container'>
         <div className='footer-contact'>
           <div className='row'>
-            <div className='col'>
+            <p className='py-4 footer-contact-block'>I help veterans get VA Loans in Phoenix, Scottsdale, Tempe, Chandler, Gilbert, and other Phoenix metro cities.
+With an office in Phoenix AZ, I am known nationwide as a top VA loan specialist. So wherever you live or want to buy a home, don't hesitate to contact me - I am here to serve YOU!</p>
+            {/* <div className='col'>
               <div className='footer-contact-block'>
                 <span className='footer-contact-icon'>
                   <i className='zmdi zmdi-phone' />
@@ -34,7 +36,7 @@ const Footer = () => (
                 </span>
                 <p><a href='#'>info@example.com</a><br /><a href='#'>info2@example.com</a></p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -42,7 +44,7 @@ const Footer = () => (
     { /* // Footer Contact Area */ }
 
     { /* Footer Inner */ }
-    <div className='footer-inner'>
+    <div className='footer-inner' data-secondary-overlay='8'>
 
       { /* Footer Widgets Area */ }
       <div className='footer-widgets-area section-padding-lg'>
