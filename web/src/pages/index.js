@@ -5,7 +5,7 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
-import BlogPostPreviewList from '../components/blog-post-preview-list'
+// import BlogPostPreviewList from '../components/blog-post-preview-list'
 // import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 
@@ -13,6 +13,7 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import Hero from '../components/hero'
 import AboutArea from '../components/about-area'
+import Highlights from '../components/features-area'
 
 const IndexPage = props => {
   const {data, errors} = props
@@ -48,15 +49,16 @@ const IndexPage = props => {
 
       <Hero />
       <AboutArea />
+      <Highlights />
 
-      <h1 hidden>Welcome to {site.title}</h1>
-      {postNodes && (
+      {/* <h1 hidden>Welcome to {site.title}</h1> */}
+      {/* {postNodes && (
         <BlogPostPreviewList
           title='Latest blog posts'
           nodes={postNodes}
           browseMoreHref='/archive/'
         />
-      )}
+      )} */}
 
     </Layout>
   )

@@ -3,9 +3,9 @@ import Header from './header'
 import Footer from './footer'
 
 import 'bootstrap/dist/css/bootstrap.css'
-import '../styles/main.css'
-import '../styles/slick.css'
 import '../styles/icons.css'
+import '../styles/slick.css'
+import '../styles/main.css'
 
 const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => (
   <div id='wrapper' className='wrapper'>
