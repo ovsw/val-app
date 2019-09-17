@@ -4,7 +4,7 @@ const QuestionAnswer = ({question, answer, item}) => {
   return (
     <>
       <h4 className='' data-collapse-summary='' aria-expanded='false'>
-        <a href='#'>{item}. {question}</a>
+        <a href='#' style={{color: 'white'}}>{item}. {question}</a>
       </h4>
       <div className='faequently-description' aria-hidden='true' style={{display: 'block'}} dangerouslySetInnerHTML={{__html: answer}} />
     </>

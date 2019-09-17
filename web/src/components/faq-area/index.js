@@ -3,10 +3,10 @@ import QA from './qa'
 
 const FAQArea = ({sectionTitle, sectionSubtitle, faqContent}) => {
   return (
-    <div className='frequently-ask-question-area in-section section-padding-top-lg section-padding-bottom-lg bg-white'>
+    <div className='calltoaction-area in-section section-padding-lg bg-image-1 dark' data-secondary-overlay='9'>
       <div className='container'>
-        <div className='row justify-content-center'>
-          <div className='col-lg-8'>
+        <div className='row justify-content-center in-cta'>
+          <div className='col-lg-8' >
             <div className='section-title text-center'>
               {sectionSubtitle && <h6>{sectionSubtitle}</h6>}
               <h2>{sectionTitle}</h2>

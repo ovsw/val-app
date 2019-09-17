@@ -4675,6 +4675,9 @@ select {
   margin-bottom: 1px;
   position: relative;
 }
+.dark .faequently-accordion h4 {
+  box-shadow: 0 0 2px rgba(255, 255, 255, 1);
+}
 @media only screen and (max-width: 767px) {
   .faequently-accordion h4 {
     padding: 15px 55px 15px 15px;
@@ -4716,6 +4719,10 @@ select {
   padding: 30px 50px;
   margin-bottom: 0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.06);
+}
+.dark .faequently-accordion .faequently-description p  {
+  box-shadow: 0 0 2px rgba(255, 255, 255, 1);
+  color: #bababa;
 }
 @media only screen and (max-width: 767px) {
   .faequently-accordion .faequently-description p {

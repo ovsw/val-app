@@ -6,22 +6,34 @@ import styles from './blog-post-preview-grid.module.css'
 
 function BlogPostPreviewGrid (props) {
   return (
-    <div className={styles.root}>
-      {props.title && <h2 className={styles.headline}>{props.title}</h2>}
-      <ul className={styles.grid}>
-        {props.nodes &&
-          props.nodes.map(node => (
-            <li key={node.id}>
-              <BlogPostPreview {...node} />
-            </li>
-          ))}
-      </ul>
-      {props.browseMoreHref && (
-        <div className={styles.browseMoreNav}>
-          <Link to={props.browseMoreHref}>Browse more</Link>
+
+    <div className='blogs-area in-section section-padding-lg bg-white'>
+      <div className='container'>
+        <div className='row justify-content-center'>
+          <div className='col-lg-6'>
+            <div className='section-title text-center'>
+              {/* <h6>BEST SERVICES FOR YOU</h6> */}
+              <h2>{props.title}</h2>
+            </div>
+          </div>
         </div>
-      )}
+        <div className='row blog-slider-active in-slidearrow'>
+
+          {props.nodes &&
+          props.nodes.map(node => (
+            <div key={node.id} className='col-lg-4'>
+              <BlogPostPreview {...node} />
+            </div>
+          ))}
+
+        </div>
+        {props.browseMoreHref && (
+          <div className='row justify-content-center'>
+            <Link to={props.browseMoreHref} type='submit' class='in-button in-button-theme mt-5'>Browse more posts</Link></div>
+        )}
+      </div>
     </div>
+
   )
 }
 

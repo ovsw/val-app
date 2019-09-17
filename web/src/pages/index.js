@@ -5,7 +5,7 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
-// import BlogPostPreviewList from '../components/blog-post-preview-list'
+import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
 // import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 
@@ -102,14 +102,13 @@ const IndexPage = props => {
       <ServicesArea sectionTitle='How Do I Obtain a VA Home Loan?' sectionSubtitle='6 Simple Steps' cardsContent={obtainLoanCardsContent} />
       <FAQArea sectionTitle='Can I Get a VA Loan after Bankruptcy?' faqContent={faqContent} />
 
-      {/* <h1 hidden>Welcome to {site.title}</h1> */}
-      {/* {postNodes && (
-        <BlogPostPreviewList
-          title='Latest blog posts'
+      {postNodes && (
+        <BlogPostPreviewGrid
+          title='Recent Blog Posts'
           nodes={postNodes}
           browseMoreHref='/archive/'
         />
-      )} */}
+      )}
 
     </Layout>
   )
@@ -154,6 +153,9 @@ export const query = graphql`
       edges {
         node {
           id
+          categories {
+            title
+          }
           publishedAt
           mainImage {
             ...SanityImage
