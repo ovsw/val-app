@@ -14,6 +14,7 @@ import Layout from '../containers/layout'
 import Hero from '../components/hero'
 import AboutArea from '../components/about-area'
 import Highlights from '../components/features-area'
+import ServicesArea from '../components/services-area'
 
 const IndexPage = props => {
   const {data, errors} = props
@@ -39,6 +40,39 @@ const IndexPage = props => {
     )
   }
 
+  const obtainLoanCardsContent = [
+    {
+      title: '1 - Select a Home',
+      description: 'You select a Home and discuss the purchase with the seller or selling agent. Sign a purchase contract conditioned on approval of your VA home loan',
+      icon: 'flaticon-life-insurence'
+    },
+    {
+      title: '2 - Select a lender',
+      description: 'You select a lender and present them with your Certificate of Eligibility and complete a loan application ',
+      icon: 'flaticon-life-insurence'
+    },
+    {
+      title: '3 - Credit Report & Appraisal',
+      description: 'The lender will develop all credit and income information. They will also request VA to assign a licensed appraiser to determine the reasonable value for the property. A Certificate of Reasonable Value will be issued. Note: You may be required to pay for the credit report and appraisal unless the seller agrees to pay.',
+      icon: 'flaticon-life-insurence'
+    },
+    {
+      title: '4 - Approval',
+      description: 'The lender will let you know the decision on the loan. You should be approved if the established value and your credit and income are acceptable',
+      icon: 'flaticon-life-insurence'
+    },
+    {
+      title: '5 - Closing',
+      description: 'You (and spouse) attend the loan closing. The lender or closing attorney will explain the loan terms and requirements as well as where and how to make the monthly payments. Sign the note, mortgage, and other related papers.',
+      icon: 'flaticon-life-insurence'
+    },
+    {
+      title: '6 - Done',
+      description: 'The loan is sent to VA for guaranty. Your Certificate of Eligibility is annotated to reflect the use of entitlement and returned to you.',
+      icon: 'flaticon-life-insurence'
+    }
+  ]
+
   return (
     <Layout>
       <SEO
@@ -50,6 +84,7 @@ const IndexPage = props => {
       <Hero />
       <AboutArea />
       <Highlights />
+      <ServicesArea sectionTitle='How Do I Obtain a VA Home Loan?' sectionSubtitle='6 Simple Steps' cardsContent={obtainLoanCardsContent} />
 
       {/* <h1 hidden>Welcome to {site.title}</h1> */}
       {/* {postNodes && (
