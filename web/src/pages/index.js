@@ -15,6 +15,7 @@ import Hero from '../components/hero'
 import AboutArea from '../components/about-area'
 import Highlights from '../components/features-area'
 import ServicesArea from '../components/services-area'
+import FAQArea from '../components/faq-area'
 
 const IndexPage = props => {
   const {data, errors} = props
@@ -72,6 +73,20 @@ const IndexPage = props => {
       icon: 'flaticon-life-insurence'
     }
   ]
+  const faqContent = [
+    {
+      question: 'Was the bankruptcy discharged more than 2 years ago?',
+      answer: '<p>If the bankruptcy was discharged more than 2 years ago, it may be disregarded.</p>'
+    },
+    {
+      question: 'Was the bankruptcy discharged within the last 1 to 2 years?',
+      answer: '<p>If the bankruptcy was discharged within the last 1 to 2 years, it is probably not possible to determine that you and/or your spouse are a satisfactory credit risk unless both of the following requirements are met: <br/> - you and/or your spouse have reestablished satisfactory credit, and<br/> - the bankruptcy was caused by circumstances beyond your and/or your spouses control (such as unemployment, medical bills, etc.)</p>'
+    },
+    {
+      question: 'Was the bankruptcy discharged within the past 12 months?',
+      answer: '<p>If the bankruptcy was discharged within the past 12 months, it will not generally be possible to determine that you and/or your spouse are satisfactory credit risks.</p>'
+    }
+  ]
 
   return (
     <Layout>
@@ -85,6 +100,7 @@ const IndexPage = props => {
       <AboutArea />
       <Highlights />
       <ServicesArea sectionTitle='How Do I Obtain a VA Home Loan?' sectionSubtitle='6 Simple Steps' cardsContent={obtainLoanCardsContent} />
+      <FAQArea sectionTitle='Can I Get a VA Loan after Bankruptcy?' faqContent={faqContent} />
 
       {/* <h1 hidden>Welcome to {site.title}</h1> */}
       {/* {postNodes && (

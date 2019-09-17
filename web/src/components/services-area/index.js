@@ -16,7 +16,7 @@ const ServicesArea = ({sectionTitle = 'Missing Title', sectionSubtitle, cardsCon
         </div>
         <div className='row'>
 
-          {cardsContent.map(serviceProps => <Service {...serviceProps} />)}
+          {cardsContent.map((serviceProps, index) => <Service key={index} {...serviceProps} />)}
 
         </div>
 
