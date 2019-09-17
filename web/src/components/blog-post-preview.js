@@ -1,12 +1,12 @@
 import {format} from 'date-fns'
 import {Link} from 'gatsby'
 import React from 'react'
-import {buildImageObj, cn, getBlogUrl} from '../lib/helpers'
+import {buildImageObj, getBlogUrl} from '../lib/helpers' // cn
 import {imageUrlFor} from '../lib/image-url'
 import PortableText from './portableText'
 
 import styles from './blog-post-preview.module.css'
-import {responsiveTitle3} from './typography.module.css'
+// import {responsiveTitle3} from './typography.module.css'
 
 function BlogPostPreview (props) {
   return (
@@ -46,7 +46,7 @@ function BlogPostPreview (props) {
         <div className='in-blog-metabottom'>
           <span>By Jimmy Vercellino</span>
           {/* <span><a href='#'><i className='zmdi zmdi-favorite-outline' /> Like : 05</a> / <a href='#'><i className='zmdi zmdi-comment-outline' />
-												Comment</a></span> */}
+Comment</a></span> */}
         </div>
       </div>
     </div>

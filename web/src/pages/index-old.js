@@ -48,6 +48,9 @@ export const query = graphql`
       edges {
         node {
           id
+          categories {
+            title
+          }
           publishedAt
           mainImage {
             ...SanityImage
