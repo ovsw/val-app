@@ -1,5 +1,5 @@
-// import {Link} from 'gatsby'
 import React from 'react'
+import {Link} from 'gatsby'
 // import Icon from './icon'
 // import {cn} from '../lib/helpers'
 
@@ -13,9 +13,9 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
       <div className='container'>
 
         {/*  Header Logo */}
-        <a href='index.html' className='header-logo'>
+        <Link to='/' className='header-logo'>
           <img src='/images/logo/logo.png' alt='VA Loans For Vets' />
-        </a>
+        </Link>
         {/* Header Logo */}
 
         {/* <div className='row justify-content-betwween'>
