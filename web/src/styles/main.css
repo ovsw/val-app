@@ -1868,6 +1868,20 @@ select {
 .in-button:visited.in-button-colorwhite {
   color: #ffffff;
 }
+.in-button.in-button-theme2,
+.in-button:link.in-button-theme2,
+.in-button:visited.in-button-theme2 {
+  background-color: #163963;
+  color: white;
+  border-color: #163963;
+}
+.in-button.in-button-theme2:hover,
+.in-button:link.in-button-theme2:hover,
+.in-button:visited.in-button-theme2:hover {
+  background-color: white;
+  color: #163963;
+  border-color: #163963;
+}
 .in-button.in-button-white,
 .in-button:link.in-button-white,
 .in-button:visited.in-button-white {

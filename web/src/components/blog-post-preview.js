@@ -5,7 +5,7 @@ import {buildImageObj, getBlogUrl} from '../lib/helpers' // cn
 import {imageUrlFor} from '../lib/image-url'
 import PortableText from './portableText'
 
-import styles from './blog-post-preview.module.css'
+// import styles from './blog-post-preview.module.css'
 // import {responsiveTitle3} from './typography.module.css'
 
 function BlogPostPreview (props) {
@@ -34,7 +34,7 @@ function BlogPostPreview (props) {
         </div>
         <h4 className='in-blog-title'><a href='#'>{props.title}</a></h4>
         {props._rawExcerpt && (
-          <div className={styles.excerpt}>
+          <div >
             <PortableText blocks={props._rawExcerpt} />
           </div>
         )}
