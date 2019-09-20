@@ -30,9 +30,9 @@ function BlogPostPreview (props) {
       <div className='in-blog-content'>
         <div className='in-blog-metatop'>
           <span>{format(props.publishedAt, 'MMMM Do, YYYY')}</span>
-          <span><a href='#'>{props.categories[0].title}</a></span>
+          <span><Link to={getBlogUrl(props.publishedAt, props.slug.current)}>{props.categories[0].title}</Link></span>
         </div>
-        <h4 className='in-blog-title'><a href='#'>{props.title}</a></h4>
+        <h4 className='in-blog-title'><Link to={getBlogUrl(props.publishedAt, props.slug.current)}>{props.title}</Link></h4>
         {props._rawExcerpt && (
           <div >
             <PortableText blocks={props._rawExcerpt} />
