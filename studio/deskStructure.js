@@ -1,6 +1,5 @@
 import S from '@sanity/desk-tool/structure-builder'
-import MdSettings from 'react-icons/lib/md/settings'
-import MdPerson from 'react-icons/lib/md/person'
+import {MdSettings, MdPerson, MdFolder} from 'react-icons/md'
 import {FiFile} from 'react-icons/fi'
 
 const hiddenDocTypes = listItem =>
@@ -8,7 +7,7 @@ const hiddenDocTypes = listItem =>
 
 export default () =>
   S.list()
-    .title('Content')
+    .title('Website Content')
     .items([
       S.listItem()
         .title('Settings')
@@ -19,6 +18,7 @@ export default () =>
             .schemaType('siteSettings')
             .documentId('siteSettings')
         ),
+      S.divider(),
       S.listItem()
         .title('Blog posts')
         .schemaType('post')
@@ -29,15 +29,31 @@ export default () =>
           S.list()
             .title('Pages')
             .items([
-              S.listItem()
+              S.documentListItem()
+                .id('mystory')
                 .title('My Story')
+                .schemaType('page'),
+              S.listItem()
+                .title('VA Home Loans')
                 .child(
                   S.editor()
-                    .id('mystoryPage')
+                    .id('vaHomeLoansPage')
                     .schemaType('page')
-                    .documentId('mystory')
+                    .documentId('vaHomeLoans')
                 )
                 .icon(FiFile),
+              S.listItem()
+                .title('VA Home Loans Sub-Pages')
+                .id('vaHomeLoansPages')
+                .child(S.documentList()
+                  .id('loanInfoPages')
+                  .title('Loan info Sub-Pages')
+                  .menuItems(S.documentTypeList('page').getMenuItems())
+                  .filter('_type == $type && references($parentId)')
+                  .params({type: 'page', parentId: 'vaHomeLoans'})
+                  .defaultOrdering([{field: '_createdAt', direction: 'asc'}])
+                )
+                .icon(MdFolder),
               S.listItem()
                 .title('Apply')
                 .child(
@@ -57,6 +73,26 @@ export default () =>
                 )
                 .icon(FiFile),
               S.listItem()
+                .title('Loan Information')
+                .child(
+                  S.editor()
+                    .id('loanInfoPage')
+                    .schemaType('page')
+                    .documentId('loanInfo')
+                )
+                .icon(FiFile),
+              S.listItem()
+                .title('Loan Info Sub-Pages')
+                .child(S.documentList()
+                  .id('loanInfoPages')
+                  .title('Loan info Sub-Pages')
+                  .menuItems(S.documentTypeList('page').getMenuItems())
+                  .filter('_type == $type && references($parentId)')
+                  .params({type: 'page', parentId: 'loanInfo'})
+                  .defaultOrdering([{field: '_createdAt', direction: 'asc'}])
+                )
+                .icon(MdFolder),
+              S.listItem()
                 .title('VA COE')
                 .child(
                   S.editor()
@@ -67,6 +103,7 @@ export default () =>
                 .icon(FiFile)
             ])
         ),
+      S.divider(),
       S.listItem()
         .title('Authors')
         .icon(MdPerson)
