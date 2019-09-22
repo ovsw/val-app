@@ -48,6 +48,45 @@ async function createBlogPostPages (graphql, actions, reporter) {
     })
 }
 
+async function createGenericPages (graphql, actions, reporter) {
+  const {createPage} = actions
+  const result = await graphql(`
+    {
+      allSanityPage(
+        filter: { slug: { current: { ne: null } } }
+      ) {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) throw result.errors
+
+  const pageEdges = (result.data.allSanityPage || {}).edges || []
+
+  pageEdges
+    .forEach((edge, index) => {
+      const {id, slug = {}} = edge.node
+      const path = `/${slug.current}/`
+
+      reporter.info(`Creating generic page: ${path}`)
+
+      createPage({
+        path,
+        component: require.resolve('./src/templates/generic-page.js'),
+        context: {id}
+      })
+    })
+}
+
 exports.createPages = async ({graphql, actions, reporter}) => {
   await createBlogPostPages(graphql, actions, reporter)
+  await createGenericPages(graphql, actions, reporter)
 }
