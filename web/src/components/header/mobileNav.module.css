@@ -1,0 +1,22 @@
+@import '../../styles/custom-properties.css';
+@import '../../styles/custom-media.css';
+
+
+.mobileNavContainer {
+  
+}
+
+@media (--media-min-large) {
+  .mobileNavContainer{
+    display:none!important;
+  }
+}
+
+.mobileNav {
+  display: none;
+}
+
+.hamburgerBtn {
+  font-size: 2rem;
+  color: white;
+}

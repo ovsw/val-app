@@ -5,6 +5,7 @@ import {Link, useStaticQuery, graphql} from 'gatsby'
 // import {cn} from '../lib/helpers'
 
 import MainNav from './mainNav'
+import MobileNav from './mobileNav'
 
 const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => {
   const {site} = useStaticQuery(
@@ -34,12 +35,23 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => {
       {/*  Header Top Area  */}
       <div className='header-toparea'>
         <div className='container'>
+          <div className='row justify-content-betwween'>
 
-          {/*  Header Logo */}
-          <Link to='/' className='header-logo'>
-            <img src='/images/logo/logo.png' alt='VA Loans For Vets' />
-          </Link>
-          {/* Header Logo */}
+            <div className='col-md-6'>
+              {/*  Header Logo */}
+              <Link to='/' className='header-logo'>
+                <img src='/images/logo/logo.png' alt='VA Loans For Vets' />
+              </Link>
+              {/* Header Logo */}
+            </div>
+
+            <div className='col-md-6 d-flex align-items-stretch justify-content-end'>
+              {/* Movile Navigation */}
+              <MobileNav navStructure={siteNav} />
+              {/* Movile Navigation */}
+            </div>
+
+          </div>
 
           {/* <div className='row justify-content-betwween'>
           <div className='col-lg-6'>

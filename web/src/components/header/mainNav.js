@@ -1,10 +1,12 @@
 import React from 'react'
 import {Link} from 'gatsby'
 
+import styles from './mainNav.module.css'
+
 const MainNav = ({navStructure}) => {
   return (
 
-    <nav className='in-navigation'>
+    <nav className={`${styles.mainNav} in-navigation`}>
       <ul>
         {navStructure.map(({title, slug, children}) =>
           <li key={slug} className={children.length > 0 ? 'in-dropdown' : ''}>
