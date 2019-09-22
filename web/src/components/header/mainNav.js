@@ -1,11 +1,23 @@
 import React from 'react'
+import {Link} from 'gatsby'
 
-const MainNav = () => {
+const MainNav = ({navStructure}) => {
   return (
 
     <nav className='in-navigation'>
       <ul>
-        <li><a href='/'>My Story</a></li>
+        {navStructure.map(({title, slug, children}) =>
+          <li key={slug} className={children.length > 0 ? 'in-dropdown' : ''}>
+            <Link to={slug}>{title}</Link>
+            {children.length > 0 &&
+              <ul>
+                {children.map(({title, slug}) =>
+                  <li><Link to={slug}>{title}</Link></li>
+                )}
+              </ul>
+            }
+          </li>)}
+        {/* <li><a href='/'>My Story</a></li>
         <li><a href='/'>Apply</a></li>
         <li className='in-dropdown'><a href='/'>VA Home Loans</a>
           <ul>
@@ -33,7 +45,7 @@ const MainNav = () => {
             <li><a href='blog-details.html'>Blog details Right Sidebar</a></li>
             <li><a href='blog-details-left-sidebar.html'>Blog details Left Sidebar</a></li>
           </ul>
-        </li>
+        </li> */}
 
       </ul>
     </nav>
