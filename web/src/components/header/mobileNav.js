@@ -17,7 +17,7 @@ const Mobilenav = ({navStructure}) => {
                   {children.length > 0 &&
                     <ul>
                       {children.map(({title, slug}) =>
-                        <li><Link to={slug} activeStyle={{color: 'red'}} partiallyActive>{title}</Link></li>
+                        <li key={slug}><Link to={slug} activeStyle={{color: 'red'}} partiallyActive>{title}</Link></li>
                       )}
                     </ul>
                   }
