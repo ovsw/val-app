@@ -12,7 +12,7 @@ const Text = () => {
       <div className='text-center'>
         <p>I am here to help you achieve <br /> home ownership.</p>
 
-        <Link to='/contact' className='in-button in-button-theme2'>
+        <Link to='/contact-me/' className='in-button in-button-theme2'>
           Contact Me Today!
           {/* <img src='assets/images/icons/paper-plane-white.png'alt='send' /> */}
         </Link>

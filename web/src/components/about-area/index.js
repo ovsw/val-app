@@ -23,7 +23,7 @@ const AboutArea = () => {
                 <li>Call Me At <a href='tel:602-908-5849'>602-908-5849</a>.</li>
                 {/* <li>Do eiusmod tempor incididunt ut labore et dolore masit amet.</li> */}
               </ul>
-              <Link to='/contact' className='in-button'>CONTACT ME TODAY</Link>
+              <Link to='/contact-me' className='in-button'>CONTACT ME TODAY</Link>
             </div>
           </div>
           <div className='col-xl-6 col-lg-6 d-flex align-items-center justify-content-center' style={{background: `url(${uncleSamImage}) no-repeat center center`}}>

@@ -30,11 +30,11 @@ module.exports = {
           },
           {
             title: 'Obtaining a VA Home Loan',
-            slug: '/va-pre-home-faq/'
+            slug: '/va-pre-loan-faq/'
           },
           {
             title: 'After Closing: VA Home Loan FAQ',
-            slug: '/after-closing-va-home-loan-faq/'
+            slug: '/va-post-loan-faq/'
           },
           {
             title: 'What is a VA Jumbo Loan',

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'gatsby'
 
 import Service from './service'
 
@@ -21,7 +22,7 @@ const ServicesArea = ({sectionTitle = 'Missing Title', sectionSubtitle, cardsCon
         </div>
 
         <div className='row justify-content-center'>
-          <a href='/' type='submit' className='in-button in-button-theme mt-5'>Apply for a VA Loan Now</a>
+          <Link to='/apply/' type='submit' className='in-button in-button-theme mt-5'>Apply for a VA Loan Now</Link>
         </div>
 
       </div>
