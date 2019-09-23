@@ -1,11 +1,5 @@
 export default {
   widgets: [
-    {
-      name: 'sanity-tutorials',
-      options: {
-        templateRepoId: 'sanity-io/sanity-template-gatsby-blog'
-      }
-    },
     {name: 'structure-menu'},
     {
       name: 'project-info',
@@ -19,13 +13,13 @@ export default {
               sites: [
                 {
                   buildHookId: '5d564ded4abbf68b4a4d6584',
-                  title: 'Sanity Studio',
+                  title: 'Backend Editor - Sanity Studio',
                   name: 'val-app-studio',
                   apiId: 'ec6739d1-69a9-453d-acf0-5a0eab4ffd6e'
                 },
                 {
                   buildHookId: '5d564ded6c60475c5ab48f19',
-                  title: 'Blog Website',
+                  title: 'VaLoansForVets.com Front-End Website',
                   name: 'val-app',
                   apiId: '6d1af887-72d0-488d-b257-57b3ee8fcd3d'
                 }
@@ -48,6 +42,12 @@ export default {
       name: 'document-list',
       options: {title: 'Recent blog posts', order: '_createdAt desc', types: ['post']},
       layout: {width: 'medium'}
+    },
+    {
+      name: 'sanity-tutorials',
+      options: {
+        templateRepoId: 'sanity-io/sanity-template-gatsby-blog'
+      }
     }
   ]
 }
