@@ -11,7 +11,6 @@ function getIconComponent (item) {
 }
 
 function StructureMenuWidget (props) {
-  console.log(props.structure.items)
   return (
     <div className={styles.root}>
       <div className={styles.header}>
