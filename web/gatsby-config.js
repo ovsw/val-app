@@ -103,7 +103,7 @@ module.exports = {
       },
       {
         title: 'Contact',
-        slug: '/contact/',
+        slug: '/contact-me/',
         children: []
       },
       {
