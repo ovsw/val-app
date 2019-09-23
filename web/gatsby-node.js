@@ -34,9 +34,10 @@ async function createBlogPostPages (graphql, actions, reporter) {
   postEdges
     .filter(edge => !isFuture(edge.node.publishedAt))
     .forEach((edge, index) => {
-      const {id, slug = {}, publishedAt} = edge.node
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/blog/${dateSegment}/${slug.current}/`
+      const {id, slug = {}} = edge.node // publishedAt
+      // const dateSegment = format(publishedAt, 'YYYY/MM')
+      // const path = `/blog/${dateSegment}/${slug.current}/`
+      const path = `/${slug.current}/`
 
       reporter.info(`Creating blog post page: ${path}`)
 
