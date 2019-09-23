@@ -2,6 +2,7 @@ import React from 'react'
 import Figure from './Figure'
 import getYouTubeId from 'get-youtube-id'
 import YouTube from 'react-youtube'
+import Table from './Table'
 
 const YTopts = {
   width: '100%',
@@ -19,7 +20,8 @@ const serializers = {
       const {url} = node
       const id = getYouTubeId(url)
       return (<YouTube videoId={id} opts={YTopts} />)
-    }
+    },
+    mytable: Table
   }
 }
 

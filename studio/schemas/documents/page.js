@@ -72,7 +72,7 @@ export default {
       title: 'title',
       slug: 'slug'
     },
-    prepare ({title = 'No title', publishedAt, slug = {}}) {
+    prepare ({title = 'No title', slug = {}}) {
       const path = `/${slug.current}/`
       return {
         title,

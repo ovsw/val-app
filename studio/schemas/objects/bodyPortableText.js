@@ -49,6 +49,10 @@ export default {
       options: {hotspot: true}
     },
     {
-      type: 'youtube'}
+      type: 'youtube'
+    },
+    {
+      type: 'mytable'
+    }
   ]
 }
