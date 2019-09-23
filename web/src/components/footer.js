@@ -1,4 +1,4 @@
-// import {Link} from 'gatsby'
+import {Link} from 'gatsby'
 import React from 'react'
 // import Icon from './icon'
 // import {cn} from '../lib/helpers'
@@ -51,14 +51,15 @@ With an office in Phoenix AZ, I am known nationwide as a top VA loan specialist.
         <div className='container'>
           <div className='row widgets footer-widgets'>
 
-            <div className='col-lg-3 col-md-6'>
+            <div className='col-lg-4 col-md-6'>
               <div className='single-widget widget-info'>
                 <div className='logo'>
                   <a href='index.html'>
                     <img src='/images/logo/logo-2.png' alt='footer logo' />
                   </a>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incisequi nesciunt. Neque porro quisquam.</p>
+                <p>Goldwater Bank N.A. – Mortgage Division, NMLS #452955.</p>
+                <p>tel: <a href='tel:602-908-5849'>602-908-5849</a></p>
                 <ul className='footer-socialicons'>
                   <li><a href='#'><i className='zmdi zmdi-facebook' /></a></li>
                   <li><a href='#'><i className='zmdi zmdi-twitter' /></a></li>
@@ -68,7 +69,21 @@ With an office in Phoenix AZ, I am known nationwide as a top VA loan specialist.
               </div>
             </div>
 
-            <div className='col-lg-2 col-md-6'>
+            <div className='col-lg-8 col-md-6'>
+              <div className='single-widget widget-info'>
+                <h6 className='h4' style={{color: 'white'}}>CIP Disclosure</h6>
+                <p style={{fontSize: '0.8rem', lineHeight: '1.2rem'}}>
+                  Important Information about Procedures for Opening a New Account To help the government fight the funding of terrorism and money laundering activities, Federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an account (e.g., establishes a formal relationship by means of a loan application) What this means for you: When you open an account, we will ask for your name, address, date of birth, and other information that will allow us to identify you. We may also ask to see your driver's license or other identifying documents.</p>
+              </div>
+            </div>
+
+            {/* <div className='col-lg-3 col-md-6'>
+              <div className='single-widget widget-info'>
+                <p>dsa </p>
+              </div>
+            </div> */}
+
+            {/* <div className='col-lg-2 col-md-6'>
               <div className='single-widget widget-links'>
                 <h4 className='widget-title'>
                   <span>Policy</span>
@@ -81,9 +96,9 @@ With an office in Phoenix AZ, I am known nationwide as a top VA loan specialist.
                   <li><a href='#'>Security</a></li>
                 </ul>
               </div>
-            </div>
+            </div> */}
 
-            <div className='col-lg-3 col-md-6'>
+            {/* <div className='col-lg-3 col-md-6'>
               <div className='single-widget widget-latestblog'>
                 <h4 className='widget-title'>
                   <span>Latest Blog</span>
@@ -109,9 +124,9 @@ With an office in Phoenix AZ, I am known nationwide as a top VA loan specialist.
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
 
-            <div className='col-lg-4 col-md-6'>
+            {/* <div className='col-lg-4 col-md-6'>
               <div className='single-widget widget-newsletter'>
                 <h4 className='widget-title'>
                   <span>Newsletter</span>
@@ -122,7 +137,7 @@ With an office in Phoenix AZ, I am known nationwide as a top VA loan specialist.
                   <button type='submit'><img src='/images/icons/paper-plane-white.png' alt='send' /></button>
                 </form>
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>
@@ -133,16 +148,13 @@ With an office in Phoenix AZ, I am known nationwide as a top VA loan specialist.
       <div className='footer-copyright-area'>
         <div className='container'>
           <div className='row align-items-center'>
-            <div className='col-lg-6 col-12'>
-              <p className='copyright-text'>Copyright {new Date().getFullYear()} &copy; <a href='#'>Gregory</a>, All Rights Reserved</p>
+            <div className='col-lg-7 col-12'>
+              <p className='copyright-text'>&copy; {new Date().getFullYear()} &copy; <a href='#'>Jimmy Vercellino NMLS #184169</a>, All Rights Reserved <br /> Website by <a href='https://ovswebsites.com/' style={{color: 'red'}}>OvS Websites</a></p>
             </div>
-            <div className='col-lg-6 col-12'>
+            <div className='col-lg-5 col-12'>
               <ul className='copyright-links'>
-                <li><a href='#'>Help</a></li>
-                <li><a href='#'>About</a></li>
-                <li><a href='#'>Services</a></li>
-                <li><a href='#'>Privacy</a></li>
-                <li><a href='#'>Support </a></li>
+                <li><a href='https://valoansforvets.com/'>VA Loans for Vets</a></li>
+                <li><Link to='/terms-service-privacy-policy'>TOC/Privacy Policy</Link></li>
               </ul>
             </div>
           </div>
