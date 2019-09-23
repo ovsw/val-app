@@ -1,6 +1,5 @@
 import S from '@sanity/desk-tool/structure-builder'
 import {MdSettings, MdPerson, MdFolder} from 'react-icons/md'
-import {FiFile} from 'react-icons/fi'
 
 const hiddenDocTypes = listItem =>
   !['category', 'author', 'post', 'siteSettings'].includes(listItem.getId())
@@ -33,15 +32,10 @@ export default () =>
                 .id('mystory')
                 .title('My Story')
                 .schemaType('page'),
-              S.listItem()
+              S.documentListItem()
+                .id('vaHomeLoans')
                 .title('VA Home Loans')
-                .child(
-                  S.editor()
-                    .id('vaHomeLoansPage')
-                    .schemaType('page')
-                    .documentId('vaHomeLoans')
-                )
-                .icon(FiFile),
+                .schemaType('page'),
               S.listItem()
                 .title('VA Home Loans Sub-Pages')
                 .id('vaHomeLoansPages')
@@ -54,33 +48,18 @@ export default () =>
                   .defaultOrdering([{field: '_createdAt', direction: 'asc'}])
                 )
                 .icon(MdFolder),
-              S.listItem()
+              S.documentListItem()
+                .id('apply')
                 .title('Apply')
-                .child(
-                  S.editor()
-                    .id('applyPage')
-                    .schemaType('page')
-                    .documentId('apply')
-                )
-                .icon(FiFile),
-              S.listItem()
+                .schemaType('page'),
+              S.documentListItem()
+                .id('media')
                 .title('Media')
-                .child(
-                  S.editor()
-                    .id('mediaPage')
-                    .schemaType('page')
-                    .documentId('media')
-                )
-                .icon(FiFile),
-              S.listItem()
+                .schemaType('page'),
+              S.documentListItem()
+                .id('loanInfo')
                 .title('Loan Information')
-                .child(
-                  S.editor()
-                    .id('loanInfoPage')
-                    .schemaType('page')
-                    .documentId('loanInfo')
-                )
-                .icon(FiFile),
+                .schemaType('page'),
               S.listItem()
                 .title('Loan Info Sub-Pages')
                 .child(S.documentList()
@@ -92,15 +71,14 @@ export default () =>
                   .defaultOrdering([{field: '_createdAt', direction: 'asc'}])
                 )
                 .icon(MdFolder),
-              S.listItem()
+              S.documentListItem()
+                .id('vacoe')
                 .title('VA COE')
-                .child(
-                  S.editor()
-                    .id('vacoePage')
-                    .schemaType('page')
-                    .documentId('vacoe')
-                )
-                .icon(FiFile)
+                .schemaType('page'),
+              S.documentListItem()
+                .id('contactMe')
+                .title('Contact')
+                .schemaType('page')
             ])
         ),
       S.divider(),
