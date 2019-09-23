@@ -11,6 +11,7 @@ function getIconComponent (item) {
 }
 
 function StructureMenuWidget (props) {
+  console.log(props.structure.items)
   return (
     <div className={styles.root}>
       <div className={styles.header}>
@@ -18,19 +19,24 @@ function StructureMenuWidget (props) {
       </div>
 
       <div className={styles.content}>
-        {props.structure.items.map(item => {
-          const Icon = getIconComponent(item)
-          return (
-            <div key={item.id}>
-              <Link className={styles.link} href={`/desk/${item.id}`}>
-                <div className={styles.iconWrapper}>
-                  <Icon />
-                </div>
-                <div>{item.title}</div>
-              </Link>
-            </div>
-          )
-        })}
+        {props.structure.items
+          .reduce((itemsWithoutDividers, item) => {
+            if (item.type !== 'divider') itemsWithoutDividers.push(item)
+            return itemsWithoutDividers
+          }, [])
+          .map(item => {
+            const Icon = getIconComponent(item)
+            return (
+              <div key={item.id}>
+                <Link className={styles.link} href={`/desk/${item.id}`}>
+                  <div className={styles.iconWrapper}>
+                    <Icon />
+                  </div>
+                  <div>{item.title}</div>
+                </Link>
+              </div>
+            )
+          })}
       </div>
     </div>
   )
