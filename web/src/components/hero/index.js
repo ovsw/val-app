@@ -1,5 +1,6 @@
 import React from 'react'
 import Slider from 'react-slick'
+import {Link} from 'gatsby'
 
 function NextArrow (props) {
   const {onClick} = props
@@ -44,8 +45,8 @@ const Hero = () => {
                   <h1><span>Apply for a </span>VA Loan</h1>
                   <p>I am here to help you get your dream home. Click below to start the VA Loan application process.</p>
                   <div className='heroslider-buttonholder'>
-                    <a href='about-us.html' className='in-button in-button-theme'>Apply Now</a>
-                    <a href='contact.html' className='in-button in-button-colorwhite'>My Story</a>
+                    <Link to='/apply/' className='in-button in-button-theme'>Apply Now</Link>
+                    <Link to='/my-story/' className='in-button in-button-colorwhite'>My Story</Link>
                   </div>
                 </div>
               </div>
@@ -66,8 +67,8 @@ const Hero = () => {
                   <h1><span>Apply for a </span>VA Loan</h1>
                   <p>I am here to help you get your dream home. Click here to start the VA Loan application process.</p>
                   <div className='heroslider-buttonholder'>
-                    <a href='about-us.html' className='in-button in-button-theme'>About Us</a>
-                    <a href='contact.html' className='in-button in-button-colorwhite'>Contact Us</a>
+                    <a href='/apply/' className='in-button in-button-theme'>About Us</a>
+                    <a href='/my-story/' className='in-button in-button-colorwhite'>Contact Us</a>
                   </div>
                 </div>
               </div>
@@ -116,8 +117,8 @@ const Hero = () => {
                   <h1><span>Apply for a</span> VA Loan</h1>
                   <p>I am here to help you get your dream home. Click below to start the VA Loan application process.</p>
                   <div className='heroslider-buttonholder'>
-                    <a href='about-us.html' className='in-button in-button-theme'>Apply Now</a>
-                    <a href='contact.html' className='in-button in-button-colorwhite'>My Story</a>
+                    <Link to='/apply/' className='in-button in-button-theme'>Apply Now</Link>
+                    <Link to='/my-story/' className='in-button in-button-colorwhite'>My Story</Link>
                   </div>
                 </div>
               </div>

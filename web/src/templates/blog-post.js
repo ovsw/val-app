@@ -2,10 +2,11 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import BlogPost from '../components/blog-post'
+import {toPlainText} from '../lib/helpers'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import {toPlainText} from '../lib/helpers'
+import RightSidebar from '../containers/content/right-sidebar'
+import BlogPost from '../components/blog-post'
 
 const BlogPostTemplate = props => {
   const {data, errors} = props
@@ -21,7 +22,7 @@ const BlogPostTemplate = props => {
         </Container>
       )}
 
-      {post && <BlogPost {...post} />}
+      {post && <RightSidebar title={post.title}><BlogPost {...post} /></RightSidebar>}
     </Layout>
   )
 }

@@ -1,0 +1,93 @@
+import React from 'react'
+import {graphql} from 'gatsby'
+import {
+  mapEdgesToNodes,
+  filterOutDocsWithoutSlugs,
+  filterOutDocsPublishedInTheFuture
+} from '../lib/helpers'
+import Container from '../components/container'
+import GraphQLErrorList from '../components/graphql-error-list'
+import SEO from '../components/seo'
+import Layout from '../containers/layout'
+import RightSidebar from '../containers/content/right-sidebar'
+import BlogPostPreviewList from '../components/blog-post-preview-list'
+
+// import {toPlainText} from '../lib/helpers'
+
+const BlogPage = props => {
+  const {data, errors} = props
+  // const page = data && data.page
+  const posts = data && data.posts
+  const postNodes = (data || {}).posts
+    ? mapEdgesToNodes(data.posts)
+      .filter(filterOutDocsWithoutSlugs)
+      .filter(filterOutDocsPublishedInTheFuture)
+    : []
+  console.log(posts)
+  return (
+    <Layout>
+      {errors && <SEO title='GraphQL Error' />}
+      {/* {page && <SEO title='Blog Posts' />} */}
+
+      {errors && (
+        <Container>
+          <GraphQLErrorList errors={errors} />
+        </Container>
+      )}
+
+      {posts && <RightSidebar title='Blog'><BlogPostPreviewList title='Blog Posts' nodes={postNodes} /></RightSidebar>}
+    </Layout>
+  )
+}
+
+export default BlogPage
+
+export const query = graphql`
+  fragment SanityImage on SanityMainImage {
+    crop {
+      _key
+      _type
+      top
+      bottom
+      left
+      right
+    }
+    hotspot {
+      _key
+      _type
+      x
+      y
+      height
+      width
+    }
+    asset {
+      _id
+    }
+  }
+
+  query BlogPageQuery {
+    posts: allSanityPost(
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+    ) {
+      edges {
+        node {
+          id
+          categories {
+            title
+          }
+          publishedAt
+          mainImage {
+            ...SanityImage
+            alt
+          }
+          title
+          _rawExcerpt
+          slug {
+            current
+          }
+        }
+      }
+    }
+  }
+`

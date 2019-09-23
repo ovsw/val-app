@@ -9,6 +9,7 @@ import PortableText from './portableText'
 // import {responsiveTitle3} from './typography.module.css'
 
 function BlogPostPreview (props) {
+  const thumbSize = props.largeThumbs ? {width: 700, height: 400} : {width: 370, height: 252}
   return (
 
     <div className='in-blog mt-30'>
@@ -17,9 +18,9 @@ function BlogPostPreview (props) {
           {props.mainImage && props.mainImage.asset && (
             <img
               src={imageUrlFor(buildImageObj(props.mainImage))
-                .width(370)
+                .width(thumbSize.width)
               // .height(Math.floor((9 / 16) * 600))
-                .height(252)
+                .height(thumbSize.height)
                 .auto('format')
                 .url()}
               alt={props.mainImage.alt}

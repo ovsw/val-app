@@ -5,6 +5,8 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import GenericPage from '../components/generic-page'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import RightSidebar from '../containers/content/right-sidebar'
+
 // import {toPlainText} from '../lib/helpers'
 
 const GenericPageTemplate = props => {
@@ -22,7 +24,7 @@ const GenericPageTemplate = props => {
         </Container>
       )}
 
-      {page && <GenericPage {...page} />}
+      {page && <RightSidebar title={page.title}><GenericPage {...page} /></RightSidebar>}
     </Layout>
   )
 }
