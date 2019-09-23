@@ -10,11 +10,11 @@ const MainNav = ({navStructure}) => {
       <ul>
         {navStructure.map(({title, slug, children}) =>
           <li key={slug} className={children.length > 0 ? 'in-dropdown' : ''}>
-            <Link to={slug}>{title}</Link>
+            <Link to={slug} activeStyle={{color: 'red'}} partiallyActive>{title}</Link>
             {children.length > 0 &&
               <ul>
                 {children.map(({title, slug}) =>
-                  <li><Link to={slug}>{title}</Link></li>
+                  <li><Link to={slug} activeStyle={{color: 'red'}} partiallyActive>{title}</Link></li>
                 )}
               </ul>
             }
