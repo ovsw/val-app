@@ -1,32 +1,28 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import MobileNavItem from './mobileNavItem'
 
 import styles from './mobileNav.module.css'
 
-const Mobilenav = ({navStructure}) => {
+const Mobilenav = ({navStructure, showNav, doShowNav, doHideNav}) => {
+  function toggleNav () {
+    if (showNav) { doHideNav() } else { doShowNav() }
+  }
+
   return (
     <div className={`${styles.mobileNavContainer} mobile-menu-wrapper clearfix`}>
-      <div className='mobile-menu'>
-        <div className='mean-bar'>
-          <a href='#nav' className={`${styles.hamburgerBtn} meanmenu-reveal`}><i className='zmdi zmdi-menu' /></a>
-          <nav className={styles.mobileNav}>
-            <ul>
-              {navStructure.map(({title, slug, children}) =>
-                <li key={slug} className={children.length > 0 ? 'in-dropdown' : ''}>
-                  <Link to={slug} activeStyle={{color: 'red'}} partiallyActive>{title}</Link>
-                  {children.length > 0 &&
-                    <ul>
-                      {children.map(({title, slug}) =>
-                        <li key={slug}><Link to={slug} activeStyle={{color: 'red'}} partiallyActive>{title}</Link></li>
-                      )}
-                    </ul>
-                  }
-                  {children.length > 0 && <a className='mean-expand' href='#' style={{fontSize: '19px'}}>+</a>}
-                </li>)}
-            </ul>
-          </nav>
-        </div>
-      </div>
+      <button
+        className={`${styles.hamburgerBtn} meanmenu-reveal`}
+        onClick={toggleNav}
+      >
+        <i className='zmdi zmdi-menu' />
+      </button>
+
+      <nav className={styles.mobileNav} style={{display: showNav === true ? 'block' : 'none'}}>
+        <ul>
+          {navStructure.map(itemProps => <MobileNavItem {...itemProps} />)}
+        </ul>
+      </nav>
+
     </div>
   )
 }

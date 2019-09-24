@@ -7,9 +7,14 @@ import '../styles/icons.css'
 import '../styles/slick.css'
 import '../styles/main.css'
 
-const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => (
+const Layout = ({children, doHideNav, doShowNav, showNav, siteTitle}) => (
   <div id='wrapper' className='wrapper'>
-    <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
+    <Header
+      siteTitle={siteTitle}
+      showNav={showNav}
+      doShowNav={doShowNav}
+      doHideNav={doHideNav}
+    />
     {/* Page Conttent */}
     {children}
     <Footer />

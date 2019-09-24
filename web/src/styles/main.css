@@ -100,13 +100,13 @@ textarea {
 }
 
 a {
-  color: #ca3c08;
+  color: #ac0404;
   text-decoration: none;
 }
 
-a:visited {
+/* a:visited {
   color: #ac0404;
-}
+} */
 
 a:focus {
   outline: thin dotted;

@@ -7,7 +7,7 @@ import {Link, useStaticQuery, graphql} from 'gatsby'
 import MainNav from './mainNav'
 import MobileNav from './mobileNav'
 
-const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => {
+const Header = ({doHideNav, doShowNav, showNav, siteTitle}) => {
   const {site} = useStaticQuery(
     graphql`
       query {
@@ -47,7 +47,12 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => {
 
             <div className='col-md-6 d-flex align-items-stretch justify-content-end'>
               {/* Movile Navigation */}
-              <MobileNav navStructure={siteNav} />
+              <MobileNav
+                navStructure={siteNav}
+                showNav={showNav}
+                doShowNav={doShowNav}
+                doHideNav={doHideNav}
+              />
               {/* Movile Navigation */}
             </div>
 
