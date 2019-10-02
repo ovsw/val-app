@@ -7,7 +7,7 @@ export default {
   fieldsets: [
     {title: 'SEO Info',
       name: 'seo',
-      options: {collapsible: true, collapsed: true}
+      options: {collapsible: true, collapsed: false}
     }
   ],
   fields: [
@@ -43,7 +43,9 @@ export default {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
-      description: 'This can be used to schedule post for publishing'
+      description: 'This can be used to schedule post for publishing',
+      validation: Rule =>
+        Rule.required()
     },
     {
       name: 'mainImage',
@@ -70,7 +72,7 @@ export default {
     {
       name: 'categories',
       type: 'array',
-      title: 'Categories',
+      title: 'Category',
       of: [
         {
           type: 'reference',
@@ -78,7 +80,12 @@ export default {
             type: 'category'
           }
         }
-      ]
+      ],
+      validation: Rule =>
+        [
+          Rule.required().min(1).error('Category is required'),
+          Rule.max(1).error("Post can't belong to more than one category!")
+        ]
     },
     {
       name: 'body',
@@ -124,8 +131,10 @@ export default {
       media: 'mainImage'
     },
     prepare ({title = 'No title', publishedAt, slug = {}, media}) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
+      // const dateSegment = format(publishedAt, 'YYYY/MM')
+      // const path = `/${dateSegment}/${slug.current}/`
+      const path = `/${slug.current}/`
+
       return {
         title,
         media,
