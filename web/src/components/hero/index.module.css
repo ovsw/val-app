@@ -1,0 +1,15 @@
+@import '../../styles/custom-properties.css';
+@import '../../styles/custom-media.css';
+
+.customHeroSliderBg {
+  background-position: center right;
+}
+
+
+
+@media (--media-max-small) {
+  .customContainer {
+    background-color: rgba(3,27,56,0.8);
+    /* padding-top: 10rem; */
+  }
+}

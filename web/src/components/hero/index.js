@@ -2,6 +2,8 @@ import React from 'react'
 import Slider from 'react-slick'
 import {Link} from 'gatsby'
 
+import styles from './index.module.css'
+
 function NextArrow (props) {
   const {onClick} = props
   return (
@@ -31,12 +33,36 @@ const Hero = () => {
   }
 
   return (
-    // <!-- Hero Slider Area -->
-    <Slider {...settings} className='heroslider-area in-sliderarrow'>
+    <>
+      {/* <!-- Hero Slider Area --> */}
+      {/* <Slider {...settings} className='heroslider-area in-sliderarrow'> */}
+
+      {/* <!-- Hero Slider Single --> */}
+      <div className='heroslider '>
+        <div className={`heroSliderBg d-flex align-items-center ${styles.customHeroSliderBg}`} style={{backgroundImage: "url('/images/bg/background-image-3s.jpg')"}}>{/* data-secondary-overlay='8' */}
+
+          <div className={`container ${styles.customContainer}`}>
+            <div className='row'>
+              <div className='col-lg-10'>
+                <div className='heroslider-content'>
+                  <h1><span>From Veteran to <br />VA Loan Specialist</span> Jimmy Vercellino</h1>
+                  <p>I'm here to <strong>help you get your dream home</strong>.<br /> Click below to start the VA Loan application process.</p>
+                  <div className='heroslider-buttonholder'>
+                    <Link to='/apply/' className='in-button in-button-theme'>Apply Now</Link>
+                    <Link to='/my-story/' className='in-button in-button-colorwhite'>My Story</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <!--// Hero Slider Single --> */}
 
       {/* <!-- Hero Slider Single  --> */}
-      <div className='heroslider animated-heroslider'>
-        <div className='heroSliderBg d-flex align-items-center' style={{backgroundImage: "url('/images/bg/background-image-3s.jpg')"}} data-secondary-overlay='8'>
+      {/* data-secondary-overlay='8' */}
+      {/* <div className='heroslider animated-heroslider'>
+        <div className='heroSliderBg d-flex align-items-center' style={{backgroundImage: "url('/images/bg/background-image-3s.jpg')"}}>
 
           <div className='container py-5'>
             <div className='row justify-content-center'>
@@ -53,7 +79,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* <!--// Hero Slider Single --> */}
 
       {/* <!-- Hero Slider Single --> */}
@@ -106,30 +132,8 @@ const Hero = () => {
       </div> */}
       {/* <!--// Hero Slider Single --> */}
 
-      {/* <!-- Hero Slider Single --> */}
-      <div className='heroslider animated-heroslider'>
-        <div className='heroSliderBg d-flex align-items-center' style={{backgroundImage: "url('/images/bg/background-image-3s.jpg')"}}data-secondary-overlay='8'>
-
-          <div className='container py-5'>
-            <div className='row'>
-              <div className='col-lg-10'>
-                <div className='heroslider-content'>
-                  <h1><span>Apply for a</span> VA Loan</h1>
-                  <p>I am here to help you get your dream home. Click below to start the VA Loan application process.</p>
-                  <div className='heroslider-buttonholder'>
-                    <Link to='/apply/' className='in-button in-button-theme'>Apply Now</Link>
-                    <Link to='/my-story/' className='in-button in-button-colorwhite'>My Story</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* <!--// Hero Slider Single --> */}
-
-    </Slider >
-
+      {/* </Slider > */}
+    </>
   )
 }
 
