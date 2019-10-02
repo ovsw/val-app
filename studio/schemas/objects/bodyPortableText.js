@@ -34,7 +34,9 @@ export default {
               {
                 title: 'URL',
                 name: 'href',
-                type: 'url'
+                type: 'url',
+                validation: Rule =>
+                  Rule.required().uri({scheme: ['http', 'https', 'mailto', 'tel'], allowRelative: true})
               }
             ]
           }
