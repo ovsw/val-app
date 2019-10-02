@@ -15,8 +15,8 @@ const GenericPageTemplate = props => {
 
   return (
     <Layout>
-      {errors && <SEO title='GraphQL Error' />}
-      {page && <SEO title={page.title || 'Untitled'} />}
+      {errors && <SEO seoTitle='GraphQL Error' />}
+      {page && <SEO seoTitle={page.seoTitle || 'Untitled'} description={page.seoDescription} />}
 
       {errors && (
         <Container>
@@ -35,6 +35,8 @@ export const query = graphql`
   query GenericPageTemplateQuery($id: String!) {
     page: sanityPage(id: {eq: $id}) {
       id
+      seoTitle
+      seoDescription
       title
       slug {
         current
