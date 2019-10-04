@@ -3,6 +3,7 @@
 
 .customHeroSliderBg {
   background-position: center right;
+  padding: 4rem 0;
 }
 
 
@@ -11,5 +12,6 @@
   .customContainer {
     background-color: rgba(3,27,56,0.8);
     /* padding-top: 10rem; */
+    
   }
 }

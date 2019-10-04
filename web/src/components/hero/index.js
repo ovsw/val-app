@@ -45,7 +45,7 @@ const Hero = () => {
             <div className='row'>
               <div className='col-lg-10'>
                 <div className='heroslider-content'>
-                  <h1><span>From Veteran to <br />VA Loan Specialist</span> Jimmy Vercellino</h1>
+                  <h1><span>From Marine to <br />VA Loan Specialist</span> Jimmy Vercellino</h1>
                   <p>I'm here to <strong>help you get your dream home</strong>.<br /> Click below to start the VA Loan application process.</p>
                   <div className='heroslider-buttonholder'>
                     <Link to='/apply/' className='in-button in-button-theme'>Apply Now</Link>
