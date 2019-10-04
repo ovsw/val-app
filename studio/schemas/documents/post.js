@@ -57,7 +57,9 @@ export default {
       type: 'excerptPortableText',
       title: 'Excerpt',
       description:
-        'This ends up on summary pages, on Google, when people share your post in social media.'
+        'This ends up on summary pages, on Google, when people share your post in social media.',
+      validation: Rule =>
+        Rule.required()
     },
     {
       name: 'authors',
