@@ -114,7 +114,28 @@ module.exports = {
       {
         title: 'Blog',
         slug: '/blog/',
-        children: []
+        children: [
+          {
+            title: 'Types of VA Loans',
+            slug: '/types-of-va-loans/'
+          },
+          {
+            title: 'Requirements',
+            slug: '/requirements/'
+          },
+          {
+            title: 'Benefits',
+            slug: '/benefits/'
+          },
+          {
+            title: 'Finances',
+            slug: '/finances/'
+          },
+          {
+            title: 'Tips',
+            slug: '/tips/'
+          }
+        ]
       }
     ]
   },
