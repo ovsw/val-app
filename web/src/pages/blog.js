@@ -23,7 +23,6 @@ const BlogPage = props => {
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []
-  console.log(posts)
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
