@@ -16,7 +16,7 @@ const GenericPageTemplate = props => {
   return (
     <Layout>
       {errors && <SEO seoTitle='GraphQL Error' />}
-      {page && <SEO seoTitle={page.seoTitle || 'Untitled'} description={page.seoDescription} />}
+      {page && <SEO seoTitle={page.seoTitle || page.title || 'Untitled'} description={page.seoDescription || ''} />}
 
       {errors && (
         <Container>

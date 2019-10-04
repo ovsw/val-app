@@ -14,7 +14,7 @@ const BlogPostTemplate = props => {
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {post && <SEO title={post.title || 'Untitled'} description={toPlainText(post._rawExcerpt)} image={post.mainImage} />}
+      {post && <SEO title={post.seoTitle || post.title || 'Untitled'} description={post.seoDescription || toPlainText(post._rawExcerpt)} image={post.mainImage} />}
 
       {errors && (
         <Container>
@@ -33,6 +33,8 @@ export const query = graphql`
   query BlogPostTemplateQuery($id: String!) {
     post: sanityPost(id: {eq: $id}) {
       id
+      seoTitle
+      seoDescription
       publishedAt
       categories {
         _id
