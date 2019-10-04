@@ -36,7 +36,7 @@ const GenericPageTemplate = props => {
         </Container>
       )}
 
-      {posts && <RightSidebar title='Category Posts'><BlogPostPreviewList title='Category Posts' nodes={postNodes} /></RightSidebar>}
+      {posts && <RightSidebar title={page.title}><BlogPostPreviewList title='Category Posts' nodes={postNodes} /></RightSidebar>}
 
     </Layout>
   )
