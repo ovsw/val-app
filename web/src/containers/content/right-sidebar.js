@@ -16,7 +16,7 @@ function GenericPage ({title, children}) {
         <div className='blog-details-area section-padding-sm bg-white'>
           <div className='container'>
             <div className='row'>
-              <div className='col-lg-8'>
+              <div className='col-lg-8 mb-5'>
                 <div className='blog-details-wrap'>
                   <div className='blog-content'>
                     {/* <h1>{title}</h1> */}

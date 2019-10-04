@@ -22,7 +22,7 @@ const Text = () => {
           Or Call Me At<br />
         <a href='tel:602-908-5849'>602-908-5849</a>
       </p>
-      <img src={SideImage} alt='Jimmy Vercellino -  Top 1% Mortgage Originators in America, 2017' />
+      <img src={SideImage} alt='Jimmy Vercellino -  Top 1% Mortgage Originators in America, 2017' style={{margin: '0 auto', display: 'block'}} />
     </div>
   )
 }
