@@ -1,5 +1,5 @@
 import S from '@sanity/desk-tool/structure-builder'
-import {MdSettings, MdPerson, MdFolder} from 'react-icons/md'
+import {MdSettings, MdPerson, MdFolder, MdBook, MdList} from 'react-icons/md'
 
 const hiddenDocTypes = listItem =>
   !['category', 'author', 'post', 'siteSettings'].includes(listItem.getId())
@@ -19,9 +19,27 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
+        .icon(MdBook)
         .title('Blog posts')
         .schemaType('post')
         .child(S.documentTypeList('post').title('Blog posts')),
+      S.listItem()
+        .icon(MdList)
+        .title('Blog Posts by Category')
+        .child(
+          S.documentList()
+            .title('Categories')
+            .menuItems(S.documentTypeList('category').getMenuItems())
+            .filter('_type == $type')
+            .params({type: 'category'})
+            .child(categoryId =>
+              S.documentList()
+                .title('Posts')
+                .menuItems(S.documentTypeList('post').getMenuItems())
+                .filter('_type == $type && $categoryId in categories[]._ref')
+                .params({type: 'post', categoryId})
+            )
+        ),
       S.listItem()
         .title('Pages')
         .child(
@@ -90,9 +108,9 @@ export default () =>
       S.listItem()
         .title('Categories')
         .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
+        .child(S.documentTypeList('category').title('Categories'))
       // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above
-      ...S.documentTypeListItems().filter(hiddenDocTypes)
+      // ...S.documentTypeListItems().filter(hiddenDocTypes)
     ])
