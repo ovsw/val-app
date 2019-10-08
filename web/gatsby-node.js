@@ -49,6 +49,50 @@ async function createBlogPostPages (graphql, actions, reporter) {
     })
 }
 
+async function createBlogListingPaginationPages (graphql, actions, reporter) {
+  const {createPage} = actions
+  const result = await graphql(`
+    {
+      allSanityPost(
+        filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      ) {
+        edges {
+          node {
+            id
+            publishedAt
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) throw result.errors
+
+  const postEdges = (result.data.allSanityPost || {}).edges || []
+
+  const postsPerPage = 10
+  const numPages = Math.ceil(postEdges.length / postsPerPage)
+
+  Array.from({length: numPages}).forEach((_, i) => {
+    const path = i === 0 ? `/blog` : `/blog/${i + 1}`
+    reporter.info(`Creating blog post page: ${path}`)
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/blog-list-page.js'),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1
+      }
+    })
+  })
+}
+
 async function createGenericPages (graphql, actions, reporter) {
   const {createPage} = actions
   const result = await graphql(`
@@ -127,4 +171,5 @@ exports.createPages = async ({graphql, actions, reporter}) => {
   await createBlogPostPages(graphql, actions, reporter)
   await createGenericPages(graphql, actions, reporter)
   await createCategoryPages(graphql, actions, reporter)
+  await createBlogListingPaginationPages(graphql, actions, reporter)
 }

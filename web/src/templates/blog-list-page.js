@@ -15,7 +15,8 @@ import BlogPostPreviewList from '../components/blog-post-preview-list'
 // import {toPlainText} from '../lib/helpers'
 
 const BlogPage = props => {
-  const {data, errors} = props
+  const {data, errors, pageContext: {currentPage, numPages}} = props
+
   // const page = data && data.page
   const posts = data && data.posts
   const postNodes = (data || {}).posts
@@ -34,7 +35,10 @@ const BlogPage = props => {
         </Container>
       )}
 
-      {posts && <RightSidebar title='Blog'><BlogPostPreviewList title='Blog Posts' nodes={postNodes} /></RightSidebar>}
+      {posts &&
+      <RightSidebar title='Blog'>
+        <BlogPostPreviewList title='Blog Posts' nodes={postNodes} currentPage={currentPage} numPages={numPages} />
+      </RightSidebar>}
     </Layout>
   )
 }
@@ -64,10 +68,12 @@ export const query = graphql`
     }
   }
 
-  query BlogPageQuery {
+  query blogListQuery($skip: Int!, $limit: Int!) {
     posts: allSanityPost(
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      limit: $limit
+      skip: $skip
     ) {
       edges {
         node {

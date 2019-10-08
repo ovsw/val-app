@@ -1,23 +1,25 @@
 import React from 'react'
 import BlogPostPreview from './blog-post-preview'
+import Pagination from './pagination'
 
-function BlogPostPreviewGrid (props) {
+function BlogPostPreviewList ({nodes, currentPage, numPages}) {
   return (
     <>
       {/* <h2 className={styles.headline}>{props.title}</h2> */}
-
-      {props.nodes &&
-          props.nodes.map(node => (
+      <Pagination currentPage={currentPage} numPages={numPages} />
+      {nodes &&
+          nodes.map(node => (
             <BlogPostPreview key={node.id} {...node} largeThumbs />
           ))
       }
+      <Pagination currentPage={currentPage} numPages={numPages} />
     </>
   )
 }
 
-BlogPostPreviewGrid.defaultProps = {
+BlogPostPreviewList.defaultProps = {
   title: '',
   nodes: []
 }
 
-export default BlogPostPreviewGrid
+export default BlogPostPreviewList
