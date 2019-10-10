@@ -37,7 +37,11 @@ const BlogPage = props => {
 
       {posts &&
       <RightSidebar title='Blog'>
-        <BlogPostPreviewList title='Blog Posts' nodes={postNodes} currentPage={currentPage} numPages={numPages} />
+        <BlogPostPreviewList title='Blog Posts'
+          rootSlug='/blog'
+          nodes={postNodes}
+          currentPage={currentPage}
+          numPages={numPages} />
       </RightSidebar>}
     </Layout>
   )

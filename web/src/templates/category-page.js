@@ -14,8 +14,8 @@ import BlogPostPreviewList from '../components/blog-post-preview-list'
 
 // import {toPlainText} from '../lib/helpers'
 
-const GenericPageTemplate = props => {
-  const {data, errors} = props
+const CategoryPageTemplate = props => {
+  const {data, errors, pageContext: {catCurrentPage, catNumPages, categorySlug}} = props
   const page = data && data.page
 
   const posts = data && data.posts
@@ -36,13 +36,20 @@ const GenericPageTemplate = props => {
         </Container>
       )}
 
-      {posts && <RightSidebar title={page.title}><BlogPostPreviewList title='Category Posts' nodes={postNodes} /></RightSidebar>}
+      {posts &&
+      <RightSidebar title={page.title}>
+        <BlogPostPreviewList title='Category Posts'
+          rootSlug={categorySlug}
+          nodes={postNodes}
+          currentPage={catCurrentPage}
+          numPages={catNumPages} />
+      </RightSidebar>}
 
     </Layout>
   )
 }
 
-export default GenericPageTemplate
+export default CategoryPageTemplate
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -67,8 +74,14 @@ export const query = graphql`
     }
   }
 
-  query CategoryPageTemplateQuery($id: String!) {
-    posts: allSanityPost(sort: {fields: [publishedAt], order: DESC}, filter: {categories: {elemMatch: {id: {eq: $id}}}}) {
+  query CategoryPageTemplateQuery($categoryId: String!, $skip: Int!, $limit: Int!) {
+    posts: allSanityPost(
+      sort: {fields: [publishedAt]
+      order: DESC}
+      filter: {categories: {elemMatch: {id: {eq: $categoryId}}}}
+      limit: $limit
+      skip: $skip
+    ) {
       edges {
         node {
           id
@@ -88,7 +101,7 @@ export const query = graphql`
         }
       }
     }
-    page: sanityCategory(id: {eq: $id}) {
+    page: sanityCategory(id: {eq: $categoryId}) {
       title
       seoTitle
       seoDescription

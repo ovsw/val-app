@@ -7,7 +7,7 @@ const {isFuture} = require('date-fns')
 
 // const {format} = require('date-fns')
 
-async function createBlogPostPages (graphql, actions, reporter) {
+async function createBlogPages (graphql, actions, reporter) {
   const {createPage} = actions
   const result = await graphql(`
     {
@@ -21,6 +21,23 @@ async function createBlogPostPages (graphql, actions, reporter) {
             slug {
               current
             }
+            categories {
+              id
+              title
+              slug {
+                current
+              }
+            }
+          }
+        }
+      }
+      allSanityCategory{
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
           }
         }
       }
@@ -30,7 +47,9 @@ async function createBlogPostPages (graphql, actions, reporter) {
   if (result.errors) throw result.errors
 
   const postEdges = (result.data.allSanityPost || {}).edges || []
+  const categoryEdges = (result.data.allSanityCategory || {}).edges || []
 
+  // create blog post pages
   postEdges
     .filter(edge => !isFuture(edge.node.publishedAt))
     .forEach((edge, index) => {
@@ -47,32 +66,8 @@ async function createBlogPostPages (graphql, actions, reporter) {
         context: {id}
       })
     })
-}
 
-async function createBlogListingPaginationPages (graphql, actions, reporter) {
-  const {createPage} = actions
-  const result = await graphql(`
-    {
-      allSanityPost(
-        filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-      ) {
-        edges {
-          node {
-            id
-            publishedAt
-            slug {
-              current
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  if (result.errors) throw result.errors
-
-  const postEdges = (result.data.allSanityPost || {}).edges || []
-
+  // create blog pagination pages
   const postsPerPage = 10
   const numPages = Math.ceil(postEdges.length / postsPerPage)
 
@@ -89,6 +84,55 @@ async function createBlogListingPaginationPages (graphql, actions, reporter) {
         numPages,
         currentPage: i + 1
       }
+    })
+  })
+
+  // Category Pages with pagination
+
+  let categoriesWithPostsInfo = [] // empty array that will contain objects, each object being a category and its posts
+
+  categoryEdges.map(category => {
+    const currentCatId = category.node.id
+    const currentCatSlug = category.node.slug.current // get the slug of the current category
+    let postsInThisCat = 0 // initialize empty array to hold all the posts in this category
+
+    postEdges.map(post => { // go through all posts
+      const postCatSlug = post.node.categories[0].slug.current
+      if (postCatSlug === currentCatSlug) { postsInThisCat = postsInThisCat + 1 } // if the post is in this category, add it to postsInThisCat
+    })
+
+    // build the object that represents the category and all its posts
+    const categoryWithItsPosts = {
+      categoryId: currentCatId,
+      categorySlug: currentCatSlug,
+      categoryNumberOfPosts: postsInThisCat
+    }
+    // add this category
+    categoriesWithPostsInfo = categoriesWithPostsInfo.concat(categoryWithItsPosts)
+  })
+
+  // now we have everything we need to create the pages for each category, with pagination
+  categoriesWithPostsInfo.map(({categoryId, categorySlug, categoryNumberOfPosts}) => {
+    const catPostsPerPage = 10
+    const catNumPages = Math.ceil(categoryNumberOfPosts / catPostsPerPage)
+
+    // crete the category's pages (with pagination)
+    Array.from({length: catNumPages}).forEach((_, i) => {
+      const categoryPath = i === 0 ? `/${categorySlug}` : `/${categorySlug}/${i + 1}`
+      reporter.info(`Creating category page: ${categoryPath}`)
+
+      createPage({
+        path: categoryPath,
+        component: require.resolve('./src/templates/category-page.js'),
+        context: {
+          limit: catPostsPerPage,
+          skip: i * catPostsPerPage,
+          catNumPages,
+          catCurrentPage: i + 1,
+          categoryId,
+          categorySlug
+        }
+      })
     })
   })
 }
@@ -131,45 +175,7 @@ async function createGenericPages (graphql, actions, reporter) {
     })
 }
 
-async function createCategoryPages (graphql, actions, reporter) {
-  const {createPage} = actions
-  const result = await graphql(`
-    {
-      allSanityCategory{
-        edges {
-          node {
-            id
-            slug {
-              current
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  if (result.errors) throw result.errors
-
-  const categoryEdges = (result.data.allSanityCategory || {}).edges || []
-
-  categoryEdges
-    .forEach((edge, index) => {
-      const {id, slug = {}} = edge.node
-      const path = `/${slug.current}/`
-
-      reporter.info(`Creating category page: ${path}`)
-
-      createPage({
-        path,
-        component: require.resolve('./src/templates/category-page.js'),
-        context: {id}
-      })
-    })
-}
-
 exports.createPages = async ({graphql, actions, reporter}) => {
-  await createBlogPostPages(graphql, actions, reporter)
+  await createBlogPages(graphql, actions, reporter)
   await createGenericPages(graphql, actions, reporter)
-  await createCategoryPages(graphql, actions, reporter)
-  await createBlogListingPaginationPages(graphql, actions, reporter)
 }

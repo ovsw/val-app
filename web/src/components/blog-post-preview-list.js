@@ -2,17 +2,19 @@ import React from 'react'
 import BlogPostPreview from './blog-post-preview'
 import Pagination from './pagination'
 
-function BlogPostPreviewList ({nodes, currentPage, numPages}) {
+function BlogPostPreviewList ({nodes, currentPage, numPages, rootSlug}) {
   return (
     <>
       {/* <h2 className={styles.headline}>{props.title}</h2> */}
-      <Pagination currentPage={currentPage} numPages={numPages} />
-      {nodes &&
+      <Pagination currentPage={currentPage} numPages={numPages} rootSlug={rootSlug} />
+      <div className='mt-2 mb-5'>
+        {nodes &&
           nodes.map(node => (
             <BlogPostPreview key={node.id} {...node} largeThumbs />
           ))
-      }
-      <Pagination currentPage={currentPage} numPages={numPages} />
+        }
+      </div>
+      <Pagination currentPage={currentPage} numPages={numPages} rootSlug={rootSlug} />
     </>
   )
 }
