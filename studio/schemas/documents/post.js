@@ -27,7 +27,9 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long'
+      description: 'Titles should be catchy, descriptive, and not too long',
+      validation: Rule =>
+        Rule.required()
     },
     {
       name: 'slug',
@@ -52,7 +54,9 @@ export default {
     {
       name: 'mainImage',
       type: 'mainImage',
-      title: 'Main image'
+      title: 'Main image',
+      validation: Rule =>
+        Rule.required()
     },
     {
       name: 'excerpt',
@@ -67,6 +71,7 @@ export default {
       name: 'authors',
       title: 'Authors',
       type: 'array',
+      hidden: 'true',
       of: [
         {
           type: 'authorReference'
