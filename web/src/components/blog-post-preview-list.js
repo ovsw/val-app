@@ -3,10 +3,12 @@ import BlogPostPreview from './blog-post-preview'
 import Pagination from './pagination'
 
 function BlogPostPreviewList ({nodes, currentPage, numPages, rootSlug}) {
+  const showPagination = !(numPages < 2)
+
   return (
     <>
       {/* <h2 className={styles.headline}>{props.title}</h2> */}
-      <Pagination currentPage={currentPage} numPages={numPages} rootSlug={rootSlug} />
+      {showPagination && <Pagination currentPage={currentPage} numPages={numPages} rootSlug={rootSlug} />}
       <div className='mt-2 mb-5'>
         {nodes &&
           nodes.map(node => (
@@ -14,7 +16,7 @@ function BlogPostPreviewList ({nodes, currentPage, numPages, rootSlug}) {
           ))
         }
       </div>
-      <Pagination currentPage={currentPage} numPages={numPages} rootSlug={rootSlug} />
+      {showPagination && <Pagination currentPage={currentPage} numPages={numPages} rootSlug={rootSlug} />}
     </>
   )
 }
