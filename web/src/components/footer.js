@@ -10,10 +10,10 @@ const Footer = () => (
     <div className='footer-contact-area'>
       <div className='container'>
         <div className='footer-contact'>
-          <div className='row'>
-            <p className='py-4 footer-contact-block'>I help veterans get VA Loans in Phoenix, Scottsdale, Tempe, Chandler, Gilbert, and other Phoenix metro cities.
-With an office in Phoenix AZ, I am known nationwide as a top VA loan specialist. So wherever you live or want to buy a home, don't hesitate to contact me - I am here to serve YOU!</p>
-            {/* <div className='col'>
+          {/* <div className='row'> */}
+          <p className='footer-contact-block' style={{marginBottom: '0'}}>I help veterans get VA Loans in Phoenix, Scottsdale, Tempe, Chandler, Gilbert, and other Phoenix metro cities.
+With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. So wherever you live or want to buy a home, don't hesitate to contact me - I am here to serve YOU!</p>
+          {/* <div className='col'>
               <div className='footer-contact-block'>
                 <span className='footer-contact-icon'>
                   <i className='zmdi zmdi-phone' />
@@ -37,7 +37,7 @@ With an office in Phoenix AZ, I am known nationwide as a top VA loan specialist.
                 <p><a href='#'>info@example.com</a><br /><a href='#'>info2@example.com</a></p>
               </div>
             </div> */}
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </div>

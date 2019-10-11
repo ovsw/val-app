@@ -6,7 +6,7 @@ const Service = ({title, description, icon}) => {
       <span className='in-service-icon'>
         <i className={icon} />
       </span>
-      <h5><a href='services-details.html'>{title}</a></h5>
+      <h5 style={{color: 'red'}}>{title}</h5>
       <p>{description}</p>
       <span className='in-service-transparenticon'>
         <i className={icon} />

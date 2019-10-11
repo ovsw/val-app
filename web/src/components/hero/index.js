@@ -42,9 +42,9 @@ const Hero = () => {
         <div className={`heroSliderBg d-flex align-items-center ${styles.customHeroSliderBg}`} style={{backgroundImage: "url('/images/bg/background-image-3s.jpg')"}}>{/* data-secondary-overlay='8' */}
 
           <div className={`container ${styles.customContainer}`}>
-            <div className='row'>
+            <div className={`row ${styles.customRow}`}>
               <div className='col-lg-10'>
-                <div className='heroslider-content'>
+                <div className={`heroslider-content ${styles.sliderContent}`}>
                   <h1><span>From Marine to <br />VA Loan Specialist</span> Jimmy Vercellino</h1>
                   <p>I'm here to <strong>help you get your dream home</strong>.<br /> Click below to start the VA Loan application process.</p>
                   <div className='heroslider-buttonholder'>

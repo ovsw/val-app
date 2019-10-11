@@ -5031,6 +5031,7 @@ select {
   color: #ffffff;
   margin-bottom: 0;
   padding: 5px 0;
+  font-size: 14px;
 }
 .footer-copyright-area .copyright-text a {
   color: #ffffff;
@@ -5059,7 +5060,7 @@ select {
 .footer-copyright-area .copyright-links li a {
   display: inline-block;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 12px;
   font-family: "Montserrat", sans-serif;
 }
 .footer-copyright-area .copyright-links li a:hover {

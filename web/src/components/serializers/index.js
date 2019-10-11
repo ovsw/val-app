@@ -3,6 +3,7 @@ import Figure from './Figure'
 import getYouTubeId from 'get-youtube-id'
 import YouTube from 'react-youtube'
 import Table from './Table'
+import Embed from './Embed'
 
 const YTopts = {
   width: '100%',
@@ -21,7 +22,8 @@ const serializers = {
       const id = getYouTubeId(url)
       return (<YouTube videoId={id} opts={YTopts} />)
     },
-    mytable: Table
+    mytable: Table,
+    iframeEmbed: Embed
   }
 }
 
