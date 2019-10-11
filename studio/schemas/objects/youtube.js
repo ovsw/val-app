@@ -2,6 +2,7 @@
 import React from 'react'
 import getYouTubeId from 'get-youtube-id'
 import YouTube from 'react-youtube'
+import {IoLogoYoutube} from 'react-icons/io'
 
 const Preview = ({value}) => {
   const {url} = value
@@ -20,6 +21,7 @@ export default {
   name: 'youtube',
   type: 'object',
   title: 'YouTube Embed',
+  icon: IoLogoYoutube,
   fields: [
     {
       name: 'url',
