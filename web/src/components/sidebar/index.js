@@ -4,14 +4,14 @@ import CTA from './cta'
 import Text from './text'
 import Social from './social'
 
-const Sidebar = ({loanCta, storyCta, blogCta}) => {
+const Sidebar = ({loanCta, storyCta, blogCta, path, noBlogLink}) => {
   return (
     <div className='col-lg-4'>
       <div className='row widgets right-sidebar'>
 
-        <CTA title='Apply: VA Loan' text='I am here to help you get your dream home. Click here to start the VA Loan application process.' url='/apply' />
-        <CTA title='My Story' text='I am a committed and passionate professional who puts my VA Loan clients above all else.' url='/my-story' />
-        <CTA title='Blog' text='Follow my regular updates on information in the mortgage industry and VA Loans.' url='/blog' />
+        {!(path === '/apply/' || path === '/apply') && <CTA title='Apply: VA Loan' text='I am here to help you get your dream home. Click here to start the VA Loan application process.' url='/apply/' />}
+        {!(path === '/my-story/' || path === '/my-story') && <CTA title='My Story' text='I am a committed and passionate professional who puts my VA Loan clients above all else.' url='/my-story/' />}
+        {!noBlogLink && <CTA title='Blog' text='Follow my regular updates on information in the mortgage industry and VA Loans.' url='/blog/' />}
 
         <Text />
         <Social />

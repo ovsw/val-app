@@ -5,7 +5,7 @@ import Sidebar from '../../components/sidebar'
 
 // import styles from './blog-post.module.css'
 
-function GenericPage ({title, children}) {
+function GenericPage ({title, children, path, noBlogLink}) {
   return (
     <>
       <InnerPageHeader title={title} />
@@ -26,7 +26,7 @@ function GenericPage ({title, children}) {
                 </div>
               </div>
 
-              <Sidebar />
+              <Sidebar path={path} noBlogLink={noBlogLink} />
 
             </div>
           </div>

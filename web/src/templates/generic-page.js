@@ -10,7 +10,7 @@ import RightSidebar from '../containers/content/right-sidebar'
 // import {toPlainText} from '../lib/helpers'
 
 const GenericPageTemplate = props => {
-  const {data, errors} = props
+  const {data, errors, location} = props
   const page = data && data.page
 
   return (
@@ -24,7 +24,7 @@ const GenericPageTemplate = props => {
         </Container>
       )}
 
-      {page && <RightSidebar title={page.title}><GenericPage {...page} /></RightSidebar>}
+      {page && <RightSidebar title={page.title} path={location.pathname}><GenericPage {...page} /></RightSidebar>}
     </Layout>
   )
 }

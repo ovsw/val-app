@@ -19,7 +19,7 @@ const Mobilenav = ({navStructure, showNav, doShowNav, doHideNav}) => {
 
       <nav className={styles.mobileNav} style={{display: showNav === true ? 'block' : 'none'}}>
         <ul>
-          {navStructure.map(itemProps => <MobileNavItem {...itemProps} />)}
+          {navStructure.map(itemProps => <MobileNavItem key={itemProps.slug} {...itemProps} />)}
         </ul>
       </nav>
 

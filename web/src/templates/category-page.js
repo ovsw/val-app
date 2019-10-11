@@ -37,7 +37,7 @@ const CategoryPageTemplate = props => {
       )}
 
       {posts &&
-      <RightSidebar title={page.title}>
+      <RightSidebar title={page.title} noBlogLink>
         <BlogPostPreviewList title='Category Posts'
           rootSlug={categorySlug}
           nodes={postNodes}

@@ -27,7 +27,7 @@ function BlogPostPreviewGrid (props) {
         </div>
         {props.browseMoreHref && (
           <div className='row justify-content-center'>
-            <Link to={props.browseMoreHref} type='submit' class='in-button in-button-theme mt-5'>Browse more posts</Link></div>
+            <Link to={props.browseMoreHref} type='submit' className='in-button in-button-theme mt-5'>Browse more posts</Link></div>
         )}
       </div>
     </div>

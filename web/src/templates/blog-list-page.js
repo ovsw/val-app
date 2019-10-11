@@ -36,7 +36,7 @@ const BlogPage = props => {
       )}
 
       {posts &&
-      <RightSidebar title='Blog'>
+      <RightSidebar title='Blog' noBlogLink>
         <BlogPostPreviewList title='Blog Posts'
           rootSlug='/blog'
           nodes={postNodes}
