@@ -69,6 +69,12 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
                 <h6 className='h4' style={{color: 'white'}}>CIP Disclosure</h6>
                 <p style={{fontSize: '0.8rem', lineHeight: '1.2rem'}}>
                   Important Information about Procedures for Opening a New Account To help the government fight the funding of terrorism and money laundering activities, Federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an account (e.g., establishes a formal relationship by means of a loan application) What this means for you: When you open an account, we will ask for your name, address, date of birth, and other information that will allow us to identify you. We may also ask to see your driver's license or other identifying documents.</p>
+                <p>
+                  <a href='http://www.nmlsconsumeraccess.org/' style={{marginRight: '1rem'}} title='NML Consumer Access' rel='noopener noreferrer'>
+                    <img src='/images/logo/ico2.png' alt='NML Consumer Access Logo' />
+                  </a>
+                  <img src='/images/logo/equal-housing-lender-logo.png' alt='Equal Housing Lender Logo' title='Equal Housing Lender' />
+                </p>
               </div>
             </div>
 
