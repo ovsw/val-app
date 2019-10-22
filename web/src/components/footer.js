@@ -54,11 +54,9 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
             <div className='col-lg-4 col-md-6'>
               <div className='single-widget widget-info'>
                 <div className='logo'>
-                  <a href='index.html'>
-                    <img src='/images/logo/logo-2.png' alt='footer logo' />
-                  </a>
+                  <img src='/images/logo/GWBLogoTeamVERCELLINO-400.jpg' alt='GoldWater Bank Logo' />
                 </div>
-                <p>Goldwater Bank N.A. – Mortgage Division, NMLS #452955.</p>
+                <p>Goldwater Bank N.A. – Mortgage Division,<br /> NMLS #452955.</p>
                 <p>5050 North 40th Street, Ste 260,<br /> Phoenix AZ 85018 <br />Phone: <a href='tel:602-908-5849'>602-908-5849</a> | Fax: 480-569-1363</p>
                 <ul className='footer-socialicons'>
                   <SocialLinks />
