@@ -1,7 +1,7 @@
 import {Link} from 'gatsby'
 import React from 'react'
-// import Icon from './icon'
-// import {cn} from '../lib/helpers'
+
+import SocialLinks from '../components/social-links'
 
 const Footer = () => (
   <footer className='footer'>
@@ -59,12 +59,9 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
                   </a>
                 </div>
                 <p>Goldwater Bank N.A. – Mortgage Division, NMLS #452955.</p>
-                <p>tel: <a href='tel:602-908-5849'>602-908-5849</a></p>
+                <p>5050 North 40th Street, Ste 260,<br /> Phoenix AZ 85018 <br />Phone: <a href='tel:602-908-5849'>602-908-5849</a> | Fax: 480-569-1363</p>
                 <ul className='footer-socialicons'>
-                  <li><a href='#'><i className='zmdi zmdi-facebook' /></a></li>
-                  <li><a href='#'><i className='zmdi zmdi-twitter' /></a></li>
-                  <li><a href='#'><i className='zmdi zmdi-google-plus' /></a></li>
-                  <li><a href='#'><i className='zmdi zmdi-instagram' /></a></li>
+                  <SocialLinks />
                 </ul>
               </div>
             </div>

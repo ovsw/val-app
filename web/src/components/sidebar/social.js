@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import SocialLinks from '../social-links'
 
 const Social = () => {
   return (
@@ -14,10 +14,7 @@ const Social = () => {
 
       <div className='mt-4 text-center h5'>
         <ul className='author-socialicons'>
-          <li><a href='#'><i className='zmdi zmdi-facebook' /></a></li>
-          <li><a href='#'><i className='zmdi zmdi-google-plus' /></a></li>
-          <li><a href='#'><i className='zmdi zmdi-twitter' /></a></li>
-          <li><a href='#'><i className='zmdi zmdi-instagram' /></a></li>
+          <SocialLinks />
         </ul>
       </div>
     </div>
