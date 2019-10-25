@@ -169,7 +169,6 @@ module.exports = {
         ]
       }
     },
-    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -177,6 +176,17 @@ module.exports = {
         token: process.env.SANITY_READ_TOKEN,
         watchMode: !isProd,
         overlayDrafts: !isProd
+      }
+    },
+    'gatsby-plugin-sitemap',
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: config.googleAnalyticsID,
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: false,
+        sampleRate: 5,
+        siteSpeedSampleRate: 10
       }
     }
   ]
