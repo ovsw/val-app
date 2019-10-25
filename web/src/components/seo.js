@@ -1,98 +1,128 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {StaticQuery, graphql} from 'gatsby'
 import {imageUrlFor} from '../lib/image-url'
 import {buildImageObj} from '../lib/helpers'
 
-function SEO ({description, lang, meta, keywords, title, seoTitle, image}) {
+import config from '../../config/website'
+
+function SEO ({description, meta, title, seoTitle, image}) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription = description || (data.site && data.site.description) || ''
-        const siteTitle = (data.site && data.site.title) || ''
-        const siteAuthor = (data.site && data.site.author && data.site.author.name) || ''
-        const metaImage = (image && image.asset) ? imageUrlFor(buildImageObj(image)).width(1200).url() : ''
+        const siteTitle = seoTitle || (data.siteSettings && data.siteSettings.title)
+        const metaDescription = description || (data.siteSettings && data.siteSettings.description) || ''
+        const metaImage = (image && image.asset) ? imageUrlFor(buildImageObj(image)).width(1200).url() : config.siteLogo
+        // const siteAuthor = (data.siteSettings && data.siteSettings.author && data.siteSettings.author.name) || ''
+
+        // schema.org in JSONLD format
+        // https://developers.google.com/search/docs/guides/intro-structured-data
+        // You can fill out the 'author', 'creator' with more data or another type (e.g. 'Organization')
+
+        const schemaOrgWebPage = {
+          '@context': 'http://schema.org',
+          '@type': 'WebPage',
+          url: config.siteUrl,
+          headline: config.siteHeadline,
+          inLanguage: 'en',
+          mainEntityOfPage: config.siteUrl,
+          description: metaDescription,
+          name: siteTitle,
+          author: {
+            '@type': 'Person',
+            name: 'Jimmy Vercellino'
+          },
+          copyrightHolder: {
+            '@type': 'Person',
+            name: 'Jimmy Vercellino'
+          },
+          copyrightYear: '2019',
+          creator: {
+            '@type': 'Person',
+            name: 'Jimmy Vercellino'
+          },
+          publisher: {
+            '@type': 'Person',
+            name: 'Jimmy Vercellino'
+          },
+          datePublished: '2019-10-25',
+          dateModified: data.site.buildTime,
+          image: {
+            '@type': 'ImageObject',
+            url: image
+          }
+        }
+
+        // Initial breadcrumb list
+
+        const itemListElement = [
+          {
+            '@type': 'ListItem',
+            item: {
+              '@id': config.siteUrl,
+              name: 'Homepage'
+            },
+            position: 1
+          }
+        ]
+
+        const breadcrumb = {
+          '@context': 'http://schema.org',
+          '@type': 'BreadcrumbList',
+          description: 'Breadcrumbs list',
+          name: 'Breadcrumbs',
+          itemListElement
+        }
 
         return (
-          <Helmet
-            htmlAttributes={{lang}}
-            title={seoTitle}
-            // titleTemplate={title === siteTitle ? '%s' : `%s | ${siteTitle}`}
-            meta={[
-              {
-                name: 'description',
-                content: metaDescription
-              },
-              {
-                property: 'og:title',
-                content: title
-              },
-              {
-                property: 'og:description',
-                content: metaDescription
-              },
-              {
-                property: 'og:type',
-                content: 'website'
-              },
-              {
-                property: 'og:image',
-                content: metaImage
-              },
-              {
-                name: 'twitter:card',
-                content: 'summary'
-              },
-              {
-                name: 'twitter:creator',
-                content: siteAuthor
-              },
-              {
-                name: 'twitter:title',
-                content: title
-              },
-              {
-                name: 'twitter:description',
-                content: metaDescription
-              }
-            ]
-              .concat(
-                keywords && keywords.length > 0
-                  ? {
-                    name: 'keywords',
-                    content: keywords.join(', ')
-                  }
-                  : []
-              )
-              .concat(meta)}
-          />
+          <Helmet>
+            <html lang={config.siteLanguage} />
+            <title>{siteTitle}</title>
+            <link rel='apple-touch-icon' sizes='180x180' href='/favicons/apple-touch-icon.png' />
+            <link rel='icon' type='image/png' sizes='32x32' href='/favicons/favicon-32x32.png' />
+            <link rel='mask-icon' href='/favicons/safari-pinned-tab.svg' color={config.themeColor} />
+            <link rel='icon' type='image/png' sizes='16x16' href='/favicons/favicon-16x16.png' />
+            <link rel='shortcut icon' href='favicon.ico' />
+
+            <meta name='msapplication-TileColor' content={config.backgroundColor} />
+            <meta name='theme-color' content={config.themeColor} />
+
+            <meta name='msapplication-config' content='/browserconfig.xml' />
+            <meta name='description' content={metaDescription} />
+            <meta name='image' content={metaImage} />
+            <meta property='og:locale' content={config.ogLanguage} />
+            <meta property='og:site_name' content={config.ogSiteName} />
+            <meta property='og:title' content={siteTitle} />
+            <meta property='og:type' content='website' />
+            <meta property='og:description' content={metaDescription} />
+            <meta property='og:image' content={metaImage} />
+            <meta property='og:image:alt' content={metaDescription} />
+            {config.siteFBAppID && <meta property='fb:app_id' content={config.siteFBAppID} />}
+            <meta name='twitter:card' content='summary_large_image' />
+            <meta name='twitter:creator' content={config.userTwitter ? config.userTwitter : ''} />
+            <meta name='twitter:title' content={siteTitle} />
+            <meta name='twitter:description' content={metaDescription} />
+            <meta name='twitter:image' content={metaImage} />
+            <meta name='twitter:image:alt' content={metaDescription} />
+            <meta name='google-site-verification' content='QS8GjLT3XOeeEU9Mc6NgrGNBUPlH144c9LGV_RXQWKk' />
+            <script type='application/ld+json'>{JSON.stringify(schemaOrgWebPage)}</script>
+            <script type='application/ld+json'>{JSON.stringify(breadcrumb)}</script>
+          </Helmet>
         )
       }}
     />
   )
 }
 
-SEO.defaultProps = {
-  lang: 'en',
-  meta: [],
-  keywords: []
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired
-}
-
 export default SEO
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
-    site: sanitySiteSettings(_id: {eq: "siteSettings"}) {
+    site {
+      buildTime(formatString: "YYYY-MM-DD")
+    }
+    siteSettings: sanitySiteSettings(_id: {eq: "siteSettings"}) {
       title
       description
       keywords
