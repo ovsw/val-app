@@ -1,0 +1,3 @@
+
+http://val-app.netlify.com/* http://www.valoansforvets.com/:splat 301!
+https://val-app.netlify.com/* https://www.valoansforvets.com/:splat 301!
