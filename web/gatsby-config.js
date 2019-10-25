@@ -11,6 +11,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   siteMetadata: {
+    siteUrl: config.siteUrl,
     siteNav: [
       {
         title: 'My Story',
