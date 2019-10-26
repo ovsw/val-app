@@ -4899,7 +4899,7 @@ select {
 }
 
 .footer-inner {
-  background: rgba(22, 57, 99, 0.95) url(/images/bg/footer-bg.jpg) center center;
+  /* background: rgba(22, 57, 99, 0.95) url(/images/bg/footer-bg.jpg) center center; */
   background-size: cover;
   padding-top: 155px;
 }

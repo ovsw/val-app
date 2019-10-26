@@ -1,19 +1,37 @@
-import {Link} from 'gatsby'
 import React from 'react'
+import {Link, useStaticQuery, graphql} from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
 
 import SocialLinks from '../components/social-links'
 
-const Footer = () => (
-  <footer className='footer'>
+const Footer = () => {
+  const {footerBg} = useStaticQuery(
+    graphql`
+    query {
+      footerBg: file(relativePath: { eq: "bg/footer-bg.jpg" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+    `
+  )
 
-    { /* Footer Contact Area */ }
-    <div className='footer-contact-area'>
-      <div className='container'>
-        <div className='footer-contact'>
-          {/* <div className='row'> */}
-          <p className='footer-contact-block' style={{marginBottom: '0'}}>I help veterans get VA Loans in Phoenix, Scottsdale, Tempe, Chandler, Gilbert, and other Phoenix metro cities.
+  const footerBgSrc = footerBg.childImageSharp.fluid
+
+  return (
+    <footer className='footer'>
+
+      { /* Footer Contact Area */ }
+      <div className='footer-contact-area'>
+        <div className='container'>
+          <div className='footer-contact'>
+            {/* <div className='row'> */}
+            <p className='footer-contact-block' style={{marginBottom: '0'}}>I help veterans get VA Loans in Phoenix, Scottsdale, Tempe, Chandler, Gilbert, and other Phoenix metro cities.
 With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. So wherever you live or want to buy a home, don't hesitate to contact me - I am here to serve YOU!</p>
-          {/* <div className='col'>
+            {/* <div className='col'>
               <div className='footer-contact-block'>
                 <span className='footer-contact-icon'>
                   <i className='zmdi zmdi-phone' />
@@ -37,54 +55,60 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
                 <p><a href='#'>info@example.com</a><br /><a href='#'>info2@example.com</a></p>
               </div>
             </div> */}
-          {/* </div> */}
+            {/* </div> */}
+          </div>
         </div>
       </div>
-    </div>
-    { /* // Footer Contact Area */ }
+      { /* // Footer Contact Area */ }
 
-    { /* Footer Inner */ }
-    <div className='footer-inner' data-secondary-overlay='8'>
+      { /* Footer Inner */ }
+      <BackgroundImage
+        Tag='div'
+        className='footer-inner'
+        fluid={footerBgSrc}
+        backgroundColor={`#040e18`}
+      >
+        {/* <div className='' data-secondary-overlay='8'> */}
 
-      { /* Footer Widgets Area */ }
-      <div className='footer-widgets-area section-padding-lg'>
-        <div className='container'>
-          <div className='row widgets footer-widgets'>
+        { /* Footer Widgets Area */ }
+        <div className='footer-widgets-area section-padding-lg'>
+          <div className='container'>
+            <div className='row widgets footer-widgets'>
 
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-widget widget-info'>
-                <div className='logo'>
-                  <img src='/images/logo/GWBLogoTeamVERCELLINO-400.jpg' alt='GoldWater Bank Logo' />
+              <div className='col-lg-4 col-md-6'>
+                <div className='single-widget widget-info'>
+                  <div className='logo'>
+                    <img src='/images/logo/GWBLogoTeamVERCELLINO-400.jpg' alt='GoldWater Bank Logo' />
+                  </div>
+                  <p>Goldwater Bank N.A. – Mortgage Division,<br /> NMLS #452955.</p>
+                  <p>5050 North 40th Street, Ste 260,<br /> Phoenix AZ 85018 <br />Phone: <a href='tel:602-908-5849'>602-908-5849</a> | Fax: 480-569-1363</p>
+                  <ul className='footer-socialicons'>
+                    <SocialLinks />
+                  </ul>
                 </div>
-                <p>Goldwater Bank N.A. – Mortgage Division,<br /> NMLS #452955.</p>
-                <p>5050 North 40th Street, Ste 260,<br /> Phoenix AZ 85018 <br />Phone: <a href='tel:602-908-5849'>602-908-5849</a> | Fax: 480-569-1363</p>
-                <ul className='footer-socialicons'>
-                  <SocialLinks />
-                </ul>
               </div>
-            </div>
 
-            <div className='col-lg-8 col-md-6'>
-              <div className='single-widget widget-info'>
-                <h6 className='h4' style={{color: 'white'}}>CIP Disclosure</h6>
-                <p style={{fontSize: '0.8rem', lineHeight: '1.2rem'}}>
+              <div className='col-lg-8 col-md-6'>
+                <div className='single-widget widget-info'>
+                  <h6 className='h4' style={{color: 'white'}}>CIP Disclosure</h6>
+                  <p style={{fontSize: '0.8rem', lineHeight: '1.2rem'}}>
                   Important Information about Procedures for Opening a New Account To help the government fight the funding of terrorism and money laundering activities, Federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an account (e.g., establishes a formal relationship by means of a loan application) What this means for you: When you open an account, we will ask for your name, address, date of birth, and other information that will allow us to identify you. We may also ask to see your driver's license or other identifying documents.</p>
-                <p>
-                  <a href='http://www.nmlsconsumeraccess.org/' style={{marginRight: '1rem'}} title='NML Consumer Access' rel='noopener noreferrer'>
-                    <img src='/images/logo/ico2.png' alt='NML Consumer Access Logo' />
-                  </a>
-                  <img src='/images/logo/equal-housing-lender-logo.png' alt='Equal Housing Lender Logo' title='Equal Housing Lender' />
-                </p>
+                  <p>
+                    <a href='http://www.nmlsconsumeraccess.org/' style={{marginRight: '1rem'}} title='NML Consumer Access' rel='noopener noreferrer'>
+                      <img src='/images/logo/ico2.png' alt='NML Consumer Access Logo' />
+                    </a>
+                    <img src='/images/logo/equal-housing-lender-logo.png' alt='Equal Housing Lender Logo' title='Equal Housing Lender' />
+                  </p>
+                </div>
               </div>
-            </div>
 
-            {/* <div className='col-lg-3 col-md-6'>
+              {/* <div className='col-lg-3 col-md-6'>
               <div className='single-widget widget-info'>
                 <p>dsa </p>
               </div>
             </div> */}
 
-            {/* <div className='col-lg-2 col-md-6'>
+              {/* <div className='col-lg-2 col-md-6'>
               <div className='single-widget widget-links'>
                 <h4 className='widget-title'>
                   <span>Policy</span>
@@ -99,7 +123,7 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
               </div>
             </div> */}
 
-            {/* <div className='col-lg-3 col-md-6'>
+              {/* <div className='col-lg-3 col-md-6'>
               <div className='single-widget widget-latestblog'>
                 <h4 className='widget-title'>
                   <span>Latest Blog</span>
@@ -127,7 +151,7 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
               </div>
             </div> */}
 
-            {/* <div className='col-lg-4 col-md-6'>
+              {/* <div className='col-lg-4 col-md-6'>
               <div className='single-widget widget-newsletter'>
                 <h4 className='widget-title'>
                   <span>Newsletter</span>
@@ -140,34 +164,35 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
               </div>
             </div> */}
 
-          </div>
-        </div>
-      </div>
-      { /* // Footer Widgets Area */ }
-
-      { /* Footer Copyright Area */ }
-      <div className='footer-copyright-area'>
-        <div className='container'>
-          <div className='row align-items-center'>
-            <div className='col-lg-7 col-12'>
-              <p className='copyright-text'>&copy; {new Date().getFullYear()} &copy; <a href='#'>Jimmy Vercellino NMLS #184169</a>, All Rights Reserved <br /> Website by <a href='https://ovswebsites.com/' style={{color: 'red'}}>OvS Websites</a></p>
-            </div>
-            <div className='col-lg-5 col-12'>
-              <ul className='copyright-links'>
-                <li><a href='https://valoansforvets.com/'>VA Loans for Vets</a></li>
-                <li><Link to='/terms-service-privacy-policy'>TOC/Privacy Policy</Link></li>
-              </ul>
             </div>
           </div>
         </div>
-      </div>
-      { /* // Footer Copyright Area */ }
+        { /* // Footer Widgets Area */ }
 
-    </div>
-    { /* // Footer Inner */ }
+        { /* Footer Copyright Area */ }
+        <div className='footer-copyright-area'>
+          <div className='container'>
+            <div className='row align-items-center'>
+              <div className='col-lg-7 col-12'>
+                <p className='copyright-text'>&copy; {new Date().getFullYear()} &copy; <a href='#'>Jimmy Vercellino NMLS #184169</a>, All Rights Reserved <br /> Website by <a href='https://ovswebsites.com/' style={{color: 'red'}}>OvS Websites</a></p>
+              </div>
+              <div className='col-lg-5 col-12'>
+                <ul className='copyright-links'>
+                  <li><a href='https://valoansforvets.com/'>VA Loans for Vets</a></li>
+                  <li><Link to='/terms-service-privacy-policy'>TOC/Privacy Policy</Link></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        { /* // Footer Copyright Area */ }
 
-  </footer>
+      </BackgroundImage>
+      { /* // Footer Inner */ }
 
-)
+    </footer>
+
+  )
+}
 
 export default Footer
