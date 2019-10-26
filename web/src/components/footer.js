@@ -11,7 +11,7 @@ const Footer = () => {
       footerBg: file(relativePath: { eq: "bg/footer-bg.jpg" }) {
         childImageSharp {
           fluid(quality: 90, maxWidth: 1920) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
@@ -19,7 +19,10 @@ const Footer = () => {
     `
   )
 
-  const footerBgSrc = footerBg.childImageSharp.fluid
+  const backgroundFluidImageStack = [
+    footerBg.childImageSharp.fluid,
+    `linear-gradient(rgba(3, 27, 56, 0.8), rgba(3, 27, 56, 0.8))`
+  ].reverse()
 
   return (
     <footer className='footer'>
@@ -65,8 +68,8 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
       <BackgroundImage
         Tag='div'
         className='footer-inner'
-        fluid={footerBgSrc}
-        backgroundColor={`#040e18`}
+        fluid={backgroundFluidImageStack}
+        backgroundColor={`#163963`}
       >
         {/* <div className='' data-secondary-overlay='8'> */}
 
