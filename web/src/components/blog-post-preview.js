@@ -11,11 +11,10 @@ import PortableText from './portableText'
 function BlogPostPreview (props) {
   const thumbSize = props.largeThumbs ? {width: 700, height: 400} : {width: 370, height: 252}
   return (
-
     <div className='in-blog mt-30'>
       <div className='in-blog-image'>
         {/* <Link to={getBlogUrl(props.publishedAt, props.slug.current)}> */}
-        <Link to={props.slug.current}>
+        <Link to={`/${props.slug.current}`}>
           {props.mainImage && props.mainImage.asset && (
             <img
               src={imageUrlFor(buildImageObj(props.mainImage))
@@ -32,9 +31,9 @@ function BlogPostPreview (props) {
       <div className='in-blog-content'>
         <div className='in-blog-metatop'>
           <span>{format(props.publishedAt, 'MMMM Do, YYYY')}</span>
-          <span><Link to={props.slug.current}>{props.categories[0].title}</Link></span>
+          <span><Link to={`/${props.slug.current}`}>{props.categories[0].title}</Link></span>
         </div>
-        <h4 className='in-blog-title'><Link to={props.slug.current}>{props.title}</Link></h4>
+        <h4 className='in-blog-title'><Link to={`/${props.slug.current}`}>{props.title}</Link></h4>
         {props._rawExcerpt && (
           <div >
             <PortableText blocks={props._rawExcerpt} />
