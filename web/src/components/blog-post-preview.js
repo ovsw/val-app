@@ -3,28 +3,33 @@ import {Link} from 'gatsby'
 import React from 'react'
 import {buildImageObj, getBlogUrl} from '../lib/helpers' // cn
 import {imageUrlFor} from '../lib/image-url'
+import Img from 'gatsby-image'
 import PortableText from './portableText'
 
 // import styles from './blog-post-preview.module.css'
 // import {responsiveTitle3} from './typography.module.css'
 
 function BlogPostPreview (props) {
-  const thumbSize = props.largeThumbs ? {width: 700, height: 400} : {width: 370, height: 252}
+  // const thumbSize = props.largeThumbs ? {width: 700, height: 400} : {width: 370, height: 252}
+
   return (
     <div className='in-blog mt-30'>
       <div className='in-blog-image'>
         {/* <Link to={getBlogUrl(props.publishedAt, props.slug.current)}> */}
         <Link to={`/${props.slug.current}`}>
           {props.mainImage && props.mainImage.asset && (
-            <img
-              src={imageUrlFor(buildImageObj(props.mainImage))
-                .width(thumbSize.width)
-              // .height(Math.floor((9 / 16) * 600))
-                .height(thumbSize.height)
-                .auto('format')
-                .url()}
-              alt={props.mainImage.alt}
-            />
+            <>
+              {/* <img
+                src={imageUrlFor(buildImageObj(props.mainImage))
+                  .width(thumbSize.width)
+                // .height(Math.floor((9 / 16) * 600))
+                  .height(thumbSize.height)
+                  .auto('format')
+                  .url()}
+                alt={props.mainImage.alt}
+              /> */}
+              <Img fluid={props.mainImage.asset.fluid} alt={props.mainImage.alt} imgStyle={{transition: 'all 0.3s ease-in-out 0s'}} />
+            </>
           )}
         </Link>
       </div>

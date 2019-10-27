@@ -89,6 +89,11 @@ export const query = graphql`
           mainImage {
             ...SanityImage
             alt
+            asset {
+              fluid(maxWidth: 800) {
+                ...GatsbySanityImageFluid
+              }
+            }
           }
           title
           _rawExcerpt

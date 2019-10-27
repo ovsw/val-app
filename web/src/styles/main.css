@@ -2782,7 +2782,7 @@ select {
   display: block;
   overflow: hidden;
 }
-.in-blog-image a img {
+.in-blog-image a img, .in-blog-image  a .gatsby-image-wrapper img {
   width: 100%;
   transform: scale(1);
   transition: all 0.3s ease-in-out 0s;
