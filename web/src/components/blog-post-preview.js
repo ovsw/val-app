@@ -1,8 +1,8 @@
 import {format} from 'date-fns'
 import {Link} from 'gatsby'
 import React from 'react'
-import {buildImageObj, getBlogUrl} from '../lib/helpers' // cn
-import {imageUrlFor} from '../lib/image-url'
+// import {buildImageObj, getBlogUrl} from '../lib/helpers' // cn
+// import {imageUrlFor} from '../lib/image-url'
 import Img from 'gatsby-image'
 import PortableText from './portableText'
 

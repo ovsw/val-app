@@ -1,12 +1,27 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import {Link, useStaticQuery, graphql} from 'gatsby'
 
 // images
 import thenNowImage from '../../images/then-now1.png'
 import uncleSamImage from '../../images/uncle-sam.jpg'
 import awardImage from '../../images/2017-award-opt.png'
 
+import Img from 'gatsby-image'
+
 const AboutArea = () => {
+  const {thenNowImg} = useStaticQuery(
+    graphql`
+    query {
+      thenNowImg: file(relativePath: { eq: "then-now1.png" }) {
+        childImageSharp {
+          fixed(width: 370) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+    `
+  )
   return (
 
     <div className='about-area in-section section-padding-top-lg bg-white'>
@@ -26,8 +41,9 @@ const AboutArea = () => {
               <Link to='/contact-me' className='in-button'>CONTACT ME TODAY</Link>
             </div>
           </div>
-          <div className='col-xl-6 col-lg-6 d-flex align-items-center justify-content-center' style={{background: `url(${uncleSamImage}) no-repeat center center`}}>
-            <img src={thenNowImage} alt='then-now' />
+          <div className='col-xl-6 col-lg-6 d-flex align-items-center justify-content-center py-5' style={{background: `url(${uncleSamImage}) no-repeat center center`}}>
+            {/* <img src={thenNowImage} alt='then-now' /> */}
+            <Img fixed={thenNowImg.childImageSharp.fixed} alt='Jimmy Vercellino, then as a Marine and now as a VA Loan Specialist' />
             {/* <div className='heightmatch'>
                <div className='in-videobox'>
                 <img src='/images/other/videbox-image-1.jpg' alt='man with umbrella' />
