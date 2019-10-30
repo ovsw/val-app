@@ -8,6 +8,7 @@ module.exports = {
   siteUrl: 'https://www.valoansforvets.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: '/logo.png', // Used for SEO and manifest
+  defaultImage: '/images/jimmy-vercellino-image.jpg', // Used for SEO and manifest
   siteDescription: 'Jimmy Vercellino is a top producing mortgage loan originator for Goldwater Bank N.A. in Phoenix, AZ. His mission is to provide and assist all veterans and active duty military with all of their VA Home Loan Financing needs.',
   author: 'OVS Websites', // Author for schema.org JSONLD
 
