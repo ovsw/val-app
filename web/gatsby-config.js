@@ -139,6 +139,10 @@ module.exports = {
           {
             title: 'Tips',
             slug: '/tips/'
+          },
+          {
+            title: 'Misc',
+            slug: '/misc/'
           }
         ]
       }
