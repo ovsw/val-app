@@ -27,7 +27,7 @@ module.exports = {
       },
       {
         title: 'VA Home Loans',
-        slug: '/va-home-loans/',
+        slug: '',
         children: [
           {
             title: 'VA Loan Eligibility',
@@ -58,7 +58,7 @@ module.exports = {
       },
       {
         title: 'Loan Info',
-        slug: '/loan-tools/',
+        slug: '',
         children: [
           {
             title: 'Am I Eligible for a VA Loan?',
