@@ -3,6 +3,7 @@ import React from 'react'
 import {buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import PortableText from './portableText'
+import SocialLinks from './social-links'
 // import Container from './container'
 // import AuthorList from './author-list'
 
@@ -35,8 +36,8 @@ function BlogPost (props) {
           {categories.map(category => (
             <span key={category._id}>{category.title} </span>
           ))}
-          <br />
-                      Tags:
+          {/* <br />
+                      Tags: */}
         </span>
       </div>
 
@@ -53,12 +54,9 @@ function BlogPost (props) {
               <p>Mortgage Originator, Specializing in VA Loans</p>
             </div>
 
-            <p>dolore magna aliqua. Ut enim ad consequat. Duis aute irure dolor veritaexplicaaquuntu consectetur</p>
+            <p>Jimmy Vercellino, a Marine veteran, specializes in helping military veterans benefit from the VA Loan Program and buy the home of their dreams.</p>
             <ul className='author-socialicons'>
-              <li><a href='#'><i className='zmdi zmdi-facebook' /></a></li>
-              <li><a href='#'><i className='zmdi zmdi-google-plus' /></a></li>
-              <li><a href='#'><i className='zmdi zmdi-twitter' /></a></li>
-              <li><a href='#'><i className='zmdi zmdi-instagram' /></a></li>
+              <SocialLinks />
             </ul>
           </div>
         </div>
