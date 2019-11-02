@@ -19,7 +19,7 @@ function BlogPost (props) {
         <span> Published on: {format(publishedAt, 'MMMM Do, YYYY')} | Written by Jimmy Vercellino</span>
 
       </div>
-      <img style={{float: 'left', margin: '0 1.5rem 1.5rem 0'}}
+      <img style={{margin: '0 auto 2rem', display: 'block', width: '80%'}}
         src={imageUrlFor(buildImageObj(mainImage))
           .width(350)
           .height(300)
