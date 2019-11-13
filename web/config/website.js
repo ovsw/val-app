@@ -16,7 +16,7 @@ module.exports = {
   userTwitter: '@VALoansForVets', // Twitter Username
   ogSiteName: 'VA Loans for Vets', // Facebook Site Name
   ogLanguage: 'en_US', // Facebook Language
-  googleAnalyticsID: 'UA-90002193-1',
+  googleAnalyticsID: 'UA-47344007-1',
   // gtmID: 'GTM-PWZ6K2Z',
 
   // Manifest and Progress color
