@@ -2,20 +2,27 @@ import React from 'react'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 
 // images
-import thenNowImage from '../../images/then-now1.png'
+// import thenNowImage from '../../images/then-now1.png'
 import uncleSamImage from '../../images/uncle-sam.jpg'
-import awardImage from '../../images/2017-award-opt.png'
+// import VideoBgImage from '../../images/jimmy-vercellino-interview-good-morning-arizona.jpg'
 
 import Img from 'gatsby-image'
 
 const AboutArea = () => {
-  const {thenNowImg} = useStaticQuery(
+  const {thenNowImg, videoBgImage} = useStaticQuery(
     graphql`
     query {
       thenNowImg: file(relativePath: { eq: "then-now1.png" }) {
         childImageSharp {
           fixed(width: 370) {
             ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      videoBgImage: file(relativePath: { eq: "jimmy-vercellino-interview-on-good-morning-arizona.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 640) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -32,6 +39,7 @@ const AboutArea = () => {
               {/* <h6>about me </h6> */}
               <h1 className='h2'>Arizona VA Loan Specialist</h1>
               <h2 className='h4'>Serving Veterans NATIONWIDE.</h2>
+              <p>My Mission - To provide and assist all veterans and active duty military with ALL of their VA Home Loan Financing Needs!</p>
               <ul className='ul-style-1'>
                 <li>Get a VA Loan.</li>
                 <li>I am here to help you achieve home ownership.</li>
@@ -53,13 +61,20 @@ const AboutArea = () => {
           </div>
 
           <div className='col-xl-6 col-lg-6'>
-            <img src={awardImage} alt='Jimmy' className='w-100' />
+            <a href='https://www.youtube.com/watch?v=UgUybgYklkE' target='_blank'><Img fluid={videoBgImage.childImageSharp.fluid} alt='Jimmy' className='w-100' style={{height: '100%'}} /></a>
           </div>
           <div className='col-xl-6 col-lg-12 d-flex align-items-stretch'>
             <div className='insurencebox d-flex flex-column align-items-start justify-content-center w-100'>
               {/* <h4>MY MISSION</h4> */}
-              <h3 className='h2'>My Mission</h3>
-              <p>To provide and assist all veterans and active duty military with ALL of their VA Home Loan Financing Needs!</p>
+              {/* <h3 className='h2'>VIDEO: Interview on 3TV</h3> */}
+              <h3 className='h4'>VIDEO: Jimmy Vercellino talks about VA loans on Good Morning Arizona.</h3>
+              <ul className='ul-style-1'>
+                <li>VA Loan misconceptions.</li>
+                <li>Upcoming legislation changes to VA Loans.</li>
+                <li>Why it's important to speak with a VA Loans Specialist.</li>
+                {/* <li>Do eiusmod tempor incididunt ut labore et dolore masit amet.</li> */}
+              </ul>
+              <a href='https://www.youtube.com/watch?v=UgUybgYklkE' target='_blank' className='in-button in-button-theme'> <i className='zmdi zmdi-play' style={{marginRight: '1rem'}} /> Watch Now</a>
               {/* <form action='#' className='insurencebox-form'>
                 <select>
                   <option value='life'>Life Insurence</option>
