@@ -1,14 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link, useStaticQuery, graphql} from 'gatsby'
+import Img from 'gatsby-image'
+// import FsLightbox from 'fslightbox-react'
+import ModalVideo from 'react-modal-video'
 
 // images
 // import thenNowImage from '../../images/then-now1.png'
 import uncleSamImage from '../../images/uncle-sam.jpg'
 // import VideoBgImage from '../../images/jimmy-vercellino-interview-good-morning-arizona.jpg'
 
-import Img from 'gatsby-image'
+import '../../../node_modules/react-modal-video/css/modal-video.min.css'
 
 const AboutArea = () => {
+  const [videoToggler, setvideoToggler] = useState(false)
+
   const {thenNowImg, videoBgImage} = useStaticQuery(
     graphql`
     query {
@@ -60,8 +65,8 @@ const AboutArea = () => {
             </div> */}
           </div>
 
-          <div className='col-xl-6 col-lg-6'>
-            <a href='https://www.youtube.com/watch?v=UgUybgYklkE' target='_blank'><Img fluid={videoBgImage.childImageSharp.fluid} alt='Jimmy' className='w-100' style={{height: '100%'}} /></a>
+          <div className='col-xl-6 col-lg-6' style={{cursor: 'pointer'}} onClick={() => setvideoToggler(!videoToggler)}>
+            <Img fluid={videoBgImage.childImageSharp.fluid} alt='Jimmy' className='w-100' style={{height: '100%'}} />
           </div>
           <div className='col-xl-6 col-lg-12 d-flex align-items-stretch'>
             <div className='insurencebox d-flex flex-column align-items-start justify-content-center w-100'>
@@ -74,7 +79,9 @@ const AboutArea = () => {
                 <li>Why it's important to speak with a VA Loans Specialist.</li>
                 {/* <li>Do eiusmod tempor incididunt ut labore et dolore masit amet.</li> */}
               </ul>
-              <a href='https://www.youtube.com/watch?v=UgUybgYklkE' target='_blank' className='in-button in-button-theme'> <i className='zmdi zmdi-play' style={{marginRight: '1rem'}} /> Watch Now</a>
+              <button className='in-button in-button-theme' onClick={() => setvideoToggler(!videoToggler)}> <i className='zmdi zmdi-play' style={{marginRight: '1rem'}} /> Watch Now</button>
+              <ModalVideo channel='youtube' isOpen={videoToggler} videoId='UgUybgYklkE' onClose={() => setvideoToggler(!videoToggler)} />
+
               {/* <form action='#' className='insurencebox-form'>
                 <select>
                   <option value='life'>Life Insurence</option>

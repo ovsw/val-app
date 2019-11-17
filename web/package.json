@@ -47,6 +47,7 @@
     "gatsby-transformer-sharp": "^2.3.0",
     "get-youtube-id": "^1.0.1",
     "intersection-observer": "^0.7.0",
+    "react-modal-video": "^1.2.3",
     "react-slick": "^0.25.2",
     "react-youtube": "^7.9.0"
   }
