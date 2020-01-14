@@ -181,8 +181,8 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
               </div>
               <div className='col-lg-5 col-12'>
                 <ul className='copyright-links'>
-                  <li><Link href='/ada-compliance/'>ADA Compliance</Link></li>
-                  <li><Link to='/terms-service-privacy-policy'>TOC/Privacy Policy</Link></li>
+                  <li><Link to='/ada-compliance/'>ADA Compliance</Link></li>
+                  <li><Link to='/terms-service-privacy-policy/'>TOC/Privacy Policy</Link></li>
                 </ul>
               </div>
             </div>
