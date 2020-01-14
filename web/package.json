@@ -2,7 +2,7 @@
   "private": true,
   "name": "val-app-web",
   "version": "1.0.0",
-  "author": "Sanity <hello@sanity.io>",
+  "author": "OvS Websites <ovi@ovswebsites.com>",
   "scripts": {
     "build": "gatsby build",
     "clean-cache": "gatsby clean",
