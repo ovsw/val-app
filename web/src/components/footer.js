@@ -27,7 +27,7 @@ const Footer = () => {
   return (
     <footer className='footer'>
 
-      { /* Footer Contact Area */ }
+      { /* Footer Contact Area */}
       <div className='footer-contact-area'>
         <div className='container'>
           <div className='footer-contact'>
@@ -62,9 +62,9 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
           </div>
         </div>
       </div>
-      { /* // Footer Contact Area */ }
+      { /* // Footer Contact Area */}
 
-      { /* Footer Inner */ }
+      { /* Footer Inner */}
       <BackgroundImage
         Tag='div'
         className='footer-inner'
@@ -73,7 +73,7 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
       >
         {/* <div className='' data-secondary-overlay='8'> */}
 
-        { /* Footer Widgets Area */ }
+        { /* Footer Widgets Area */}
         <div className='footer-widgets-area section-padding-lg'>
           <div className='container'>
             <div className='row widgets footer-widgets'>
@@ -95,7 +95,7 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
                 <div className='single-widget widget-info'>
                   <h6 className='h4' style={{color: 'white'}}>CIP Disclosure</h6>
                   <p style={{fontSize: '0.8rem', lineHeight: '1.2rem'}}>
-                  Important Information about Procedures for Opening a New Account To help the government fight the funding of terrorism and money laundering activities, Federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an account (e.g., establishes a formal relationship by means of a loan application) What this means for you: When you open an account, we will ask for your name, address, date of birth, and other information that will allow us to identify you. We may also ask to see your driver's license or other identifying documents.</p>
+                    Important Information about Procedures for Opening a New Account To help the government fight the funding of terrorism and money laundering activities, Federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an account (e.g., establishes a formal relationship by means of a loan application) What this means for you: When you open an account, we will ask for your name, address, date of birth, and other information that will allow us to identify you. We may also ask to see your driver's license or other identifying documents.</p>
                   <p>
                     <a href='http://www.nmlsconsumeraccess.org/' style={{marginRight: '1rem'}} title='NML Consumer Access' rel='noopener noreferrer'>
                       <img src='/images/logo/ico2.png' alt='NML Consumer Access Logo' />
@@ -170,9 +170,9 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
             </div>
           </div>
         </div>
-        { /* // Footer Widgets Area */ }
+        { /* // Footer Widgets Area */}
 
-        { /* Footer Copyright Area */ }
+        { /* Footer Copyright Area */}
         <div className='footer-copyright-area'>
           <div className='container'>
             <div className='row align-items-center'>
@@ -181,17 +181,17 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
               </div>
               <div className='col-lg-5 col-12'>
                 <ul className='copyright-links'>
-                  <li><a href='https://valoansforvets.com/'>VA Loans for Vets</a></li>
+                  <li><Link href='/ada-compliance/'>ADA Compliance</Link></li>
                   <li><Link to='/terms-service-privacy-policy'>TOC/Privacy Policy</Link></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        { /* // Footer Copyright Area */ }
+        { /* // Footer Copyright Area */}
 
       </BackgroundImage>
-      { /* // Footer Inner */ }
+      { /* // Footer Inner */}
 
     </footer>
 
