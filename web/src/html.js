@@ -11,6 +11,13 @@ export default function HTML (props) {
           name='viewport'
           content='width=device-width, initial-scale=1, shrink-to-fit=no'
         />
+        <script dangerouslySetInnerHTML={{ __html: `
+      // note: this needs to go before any JS is loaded, e.g. probably in the head tags?
+      if (typeof window !== 'undefined' && typeof window.Proxy === 'undefined') {
+        // do something, e.g.
+        window.location.replace('https://browser-update.org/update.html') // this presumes you set up an ie.html fallback, i.e. a vanilla HTML file you create yourself
+      }
+     ` }} />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
