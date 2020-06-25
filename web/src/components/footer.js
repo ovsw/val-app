@@ -100,7 +100,7 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
                     <a href='http://www.nmlsconsumeraccess.org/' style={{marginRight: '1rem'}} title='NML Consumer Access' rel='noopener noreferrer'>
                       <img src='/images/logo/ico2.png' alt='NML Consumer Access Logo' />
                     </a>
-                    <img src='/images/logo/equal-housing-lender-logo.png' alt='Equal Housing Lender Logo' title='Equal Housing Lender' />
+                    <img src='/images/logo/equal-housing-opportunity-logo.png' alt='Equal Housing Opportunity Logo' title='Equal Housing Opportunity' />
                   </p>
                 </div>
               </div>
