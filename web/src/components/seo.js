@@ -16,12 +16,12 @@ import {
 
 import config from '../../config/website'
 
-function SEO ({description, meta, title, seoTitle, image}) {
+function SEO ({description, meta, title, image}) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const siteTitle = seoTitle || (data.siteSettings && data.siteSettings.title)
+        const siteTitle = title || (data.siteSettings && data.siteSettings.title)
         const metaDescription = description || (data.siteSettings && data.siteSettings.description) || ''
         const metaImage = (image && image.asset) ? imageUrlFor(buildImageObj(image)).width(1200).url() : `${config.siteUrl}${config.defaultImage}`
         // const siteAuthor = (data.siteSettings && data.siteSettings.author && data.siteSettings.author.name) || ''
