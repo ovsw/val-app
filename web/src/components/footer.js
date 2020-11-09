@@ -1,16 +1,24 @@
 import React from 'react'
+import Img from 'gatsby-image'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
 import SocialLinks from '../components/social-links'
 
 const Footer = () => {
-  const {footerBg} = useStaticQuery(
+  const {footerBg, vietnamLogo} = useStaticQuery(
     graphql`
     query {
       footerBg: file(relativePath: { eq: "bg/footer-bg.jpg" }) {
         childImageSharp {
           fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
+          }
+        }
+      }
+      vietnamLogo: file(relativePath: { eq: "Vietnam-War-Commemoration-Logo.png" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 190) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -91,7 +99,7 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
                 </div>
               </div>
 
-              <div className='col-lg-8 col-md-6'>
+              <div className='col-lg-6 col-md-6'>
                 <div className='single-widget widget-info'>
                   <h6 className='h4' style={{color: 'white'}}>CIP Disclosure</h6>
                   <p style={{fontSize: '0.8rem', lineHeight: '1.2rem'}}>
@@ -105,11 +113,13 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
                 </div>
               </div>
 
-              {/* <div className='col-lg-3 col-md-6'>
-              <div className='single-widget widget-info'>
-                <p>dsa </p>
+              <div className='col-lg-2'>
+              <div className='single-widget widget-info' style={{textAlign: 'center'}}>
+                <a href="https://www.vietnamwar50th.com/" target="_blank" rel="noopener noreferrer">
+                  <img src='/images/logo/Vietnam-War-Commemoration-Logo.png' alt='Vietnam War Commemoration Logo' />
+                </a>
               </div>
-            </div> */}
+            </div>
 
               {/* <div className='col-lg-2 col-md-6'>
               <div className='single-widget widget-links'>
