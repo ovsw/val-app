@@ -13,7 +13,7 @@ const Pagination = ({ currentPage, numPages, rootSlug }) => {
   return (
     <ul className={`tag-list ${styles.paginationList}`} style={{ paddingLeft: "0" }}>
       {!isFirst && (
-        <Link to={`${rootSlug}/${prevPage}/`} rel="prev" title="Previous Page">
+        <Link to={`${rootSlug}/${prevPage}`} rel="prev" title="Previous Page">
           ←
         </Link>
       )}
@@ -21,7 +21,7 @@ const Pagination = ({ currentPage, numPages, rootSlug }) => {
       {Array.from({ length: numPages }, (_, i) => (
         <Link
           key={`pagination-number${i + 1}`}
-          to={`${rootSlug}/${i === 0 ? "" : i + 1}/`}
+          to={`${rootSlug}/${i === 0 ? "" : i + 1}${i === 0 ? "" : "/"}`}
           activeClassName={styles.activeLink}
         >
           {i + 1}
