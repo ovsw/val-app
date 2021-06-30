@@ -38,7 +38,7 @@ function SEO ({description, meta, title, image}) {
             <link rel='icon' type='image/png' sizes='32x32' href='/favicons/favicon-32x32.png' />
             <link rel='mask-icon' href='/favicons/safari-pinned-tab.svg' color={config.themeColor} />
             <link rel='icon' type='image/png' sizes='16x16' href='/favicons/favicon-16x16.png' />
-            <link rel='shortcut icon' href='favicon.ico' />
+            <link rel='shortcut icon' href='/favicon.ico' />
 
             <meta name='msapplication-TileColor' content={config.backgroundColor} />
             <meta name='theme-color' content={config.themeColor} />
@@ -52,14 +52,14 @@ function SEO ({description, meta, title, image}) {
             <meta property='og:type' content='website' />
             <meta property='og:description' content={metaDescription} />
             <meta property='og:image' content={metaImage} />
-            <meta property='og:image:alt' content={metaDescription} />
+            {(image && image.alt) ? `<meta property='og:image:alt' content=${image.alt} />` : `` }
             {config.siteFBAppID && <meta property='fb:app_id' content={config.siteFBAppID} />}
             <meta name='twitter:card' content='summary_large_image' />
             <meta name='twitter:creator' content={config.userTwitter ? config.userTwitter : ''} />
             <meta name='twitter:title' content={siteTitle} />
-            <meta name='twitter:description' content={metaDescription} />
-            <meta name='twitter:image' content={metaImage} />
-            <meta name='twitter:image:alt' content={metaDescription} />
+            {/*<meta name='twitter:description' content={metaDescription} />*/}
+            {/*<meta name='twitter:image' content={metaImage} />*/}
+            {/*<meta name='twitter:image:alt' content={metaDescription} />*/}
             <meta name='google-site-verification' content='QS8GjLT3XOeeEU9Mc6NgrGNBUPlH144c9LGV_RXQWKk' />
             <script type='application/ld+json'>{JSON.stringify(websiteSchema)}</script>
             <script type='application/ld+json'>{JSON.stringify(localBusinessSchema)}</script>
