@@ -39,7 +39,7 @@ const CategoryPageTemplate = props => {
       {posts &&
       <RightSidebar title={page.title} noBlogLink>
         <BlogPostPreviewList title='Category Posts'
-          rootSlug={categorySlug}
+          rootSlug={`/${categorySlug}`}
           nodes={postNodes}
           currentPage={catCurrentPage}
           numPages={catNumPages} />
