@@ -106,7 +106,7 @@ With an office in Phoenix AZ, I'm known nationwide as a top VA loan specialist. 
                     <li><Link to='/apply/'>VA Application Process</Link></li>
                     <li><Link to='/va-loan-eligibility/'>VA Loan Eligibility</Link></li>
                     <li><Link to='/va-jumbo-loans/'>VA Jumbo Loan</Link></li>
-                    <li><Link to='va-loan-app-free-mobile-tool/'>VA Loan Apps</Link></li>
+                    <li><Link to='/va-loan-app-free-mobile-tool/'>VA Loan Apps</Link></li>
                     <li><Link to='/types-of-loans/'>Types of VA Loans</Link></li>
                     <li><Link to='/loan-checklist/'>VA Loan Checklist</Link></li>
                     <li><Link to='/refinancing/'>VA Refinance</Link></li>
