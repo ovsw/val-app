@@ -5,13 +5,13 @@ import {imageUrlFor} from '../lib/image-url'
 import {buildImageObj} from '../lib/helpers'
 
 import {
-  websiteSchema,
+  // websiteSchema,
   localBusinessSchema,
-  professionalServiceSchema,
-  breadCrumbsList,
-  organizationSchema,
-  reviewSchema,
-  faqPageSchema
+  // professionalServiceSchema,
+  // breadCrumbsList,
+  // organizationSchema,
+  // reviewSchema,
+  // faqPageSchema
 } from './schemas'
 
 import config from '../../config/website'
@@ -61,13 +61,13 @@ function SEO ({description, meta, title, image}) {
             {/*<meta name='twitter:image' content={metaImage} />*/}
             {/*<meta name='twitter:image:alt' content={metaDescription} />*/}
             <meta name='google-site-verification' content='QS8GjLT3XOeeEU9Mc6NgrGNBUPlH144c9LGV_RXQWKk' />
-            <script type='application/ld+json'>{JSON.stringify(websiteSchema)}</script>
+            {/* <script type='application/ld+json'>{JSON.stringify(websiteSchema)}</script> */}
             <script type='application/ld+json'>{JSON.stringify(localBusinessSchema)}</script>
-            <script type='application/ld+json'>{JSON.stringify(professionalServiceSchema)}</script>
-            <script type='application/ld+json'>{JSON.stringify(breadCrumbsList)}</script>
-            <script type='application/ld+json'>{JSON.stringify(organizationSchema)}</script>
-            <script type='application/ld+json'>{JSON.stringify(reviewSchema)}</script>
-            <script type='application/ld+json'>{JSON.stringify(faqPageSchema)}</script>
+            {/* <script type='application/ld+json'>{JSON.stringify(professionalServiceSchema)}</script> */}
+            {/* <script type='application/ld+json'>{JSON.stringify(breadCrumbsList)}</script> */}
+            {/* <script type='application/ld+json'>{JSON.stringify(organizationSchema)}</script> */}
+            {/* <script type='application/ld+json'>{JSON.stringify(reviewSchema)}</script> */}
+            {/* <script type='application/ld+json'>{JSON.stringify(faqPageSchema)}</script> */}
           </Helmet>
         )
       }}
