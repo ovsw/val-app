@@ -96,6 +96,14 @@ export default () =>
               S.documentListItem()
                 .id('contactMe')
                 .title('Contact')
+                .schemaType('page'),
+              S.documentListItem()
+                .id('vietnamVetsEvent')
+                .title('Annual Vietnam Vets Celebration')
+                .schemaType('page'),
+              S.documentListItem()
+                .id('spring2021BuyersGuide')
+                .title('Spring 2021 Buyer\'s Guide')
                 .schemaType('page')
             ])
         ),
