@@ -40,7 +40,7 @@ const Header = ({doHideNav, doShowNav, showNav, siteTitle}) => {
             <div className='col-md-6'>
               {/*  Header Logo */}
               <Link to='/' className='header-logo'>
-                <img src='/images/logo/logo.png' alt='VA Loans For Vets' />
+                <img src='/images/logo/va-loans-for-vets-logo.jpg' alt='VA Loans For Vets' />
               </Link>
               {/* Header Logo */}
             </div>
