@@ -43,8 +43,8 @@ const AboutArea = () => {
           <div className="col-xl-6 col-lg-12">
             <div className="about-content heightmatch">
               {/* <h6>about me </h6> */}
-              <h1 className="h2">Arizona VA Loan Specialist</h1>
-              <h2 className="h4">Serving Veterans NATIONWIDE.</h2>
+              <h1 className="h2" style={{ color: "#2b2b2b" }}>Arizona VA Loan Specialist</h1>
+              <h2 className="h4" style={{ color: "#ff372f" }}>Serving Veterans NATIONWIDE.</h2>
               <p>
                 My Mission - To provide and assist all veterans and active duty military with ALL of
                 their VA Home Loan Financing Needs!
