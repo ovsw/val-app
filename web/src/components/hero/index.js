@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 // import Slider from 'react-slick'
-import {Link, useStaticQuery, graphql} from 'gatsby'
+import { Link, useStaticQuery, graphql } from "gatsby";
 
-import BackgroundImage from 'gatsby-background-image'
+import BackgroundImage from "gatsby-background-image";
 // import Img from 'gatsby-image'
 
-import styles from './index.module.css'
+import styles from "./index.module.css";
 
 // function NextArrow (props) {
 //   const {onClick} = props
@@ -35,19 +35,19 @@ const Hero = () => {
   //   adaptiveHeight: true
   // }
 
-  const {heroBG} = useStaticQuery(
+  const { heroBG } = useStaticQuery(
     graphql`
-    query {
-      heroBG: file(relativePath: { eq: "bg/background-image-3s.jpg" }) {
-        childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+      query {
+        heroBG: file(relativePath: { eq: "bg/background-image-3s.jpg" }) {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
+            }
           }
         }
       }
-    }
     `
-  )
+  );
 
   return (
     <>
@@ -55,27 +55,39 @@ const Hero = () => {
       {/* <Slider {...settings} className='heroslider-area in-sliderarrow'> */}
 
       {/* <!-- Hero Slider Single --> */}
-      <div className='heroslider '>
+      <div className="heroslider ">
         <BackgroundImage
-          Tag='div'
+          Tag="div"
           className={`heroSliderBg d-flex align-items-center ${styles.customHeroSliderBg}`}
           fluid={heroBG.childImageSharp.fluid}
           backgroundColor={`#163963`}
-          loading='eager'
+          loading="eager"
           // fadeIn={false}
         >
-
           {/* <div className={`heroSliderBg d-flex align-items-center ${styles.customHeroSliderBg}`} style={{backgroundImage: "url('/images/bg/background-image-3s.jpg')"}}>data-secondary-overlay='8' */}
 
           <div className={`container ${styles.customContainer}`}>
             <div className={`row ${styles.customRow}`}>
-              <div className='col-lg-10'>
+              <div className="col-lg-10">
                 <div className={`heroslider-content ${styles.sliderContent}`}>
-                  <h1><span>From Marine to <br />VA Loan Specialist</span> Jimmy Vercellino</h1>
-                  <p>I'm here to <strong>help you get your dream home</strong>.<br /> Click below to start the VA Loan application process.</p>
-                  <div className='heroslider-buttonholder'>
-                    <Link to='/apply/' className='in-button in-button-theme'>Apply Now</Link>
-                    <Link to='/my-story/' className='in-button in-button-colorwhite'>My Story</Link>
+                  <h1>
+                    <span>
+                      From Marine to <br />
+                      VA Loan Specialist
+                    </span>{" "}
+                    Jimmy Vercellino
+                  </h1>
+                  <p>
+                    I want to be your trusted advisor and get you homeownership. <br /> Click below
+                    to start the VA Home Loan Journey.
+                  </p>
+                  <div className="heroslider-buttonholder">
+                    <Link to="/apply/" className="in-button in-button-theme">
+                      Apply Now
+                    </Link>
+                    <Link to="/my-story/" className="in-button in-button-colorwhite">
+                      My Story
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -162,7 +174,7 @@ const Hero = () => {
 
       {/* </Slider > */}
     </>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

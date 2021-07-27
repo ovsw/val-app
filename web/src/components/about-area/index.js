@@ -43,19 +43,20 @@ const AboutArea = () => {
           <div className="col-xl-6 col-lg-12">
             <div className="about-content heightmatch">
               {/* <h6>about me </h6> */}
-              <h2 className="h2" style={{ color: "#2b2b2b" }}>Arizona VA Loan Specialist</h2>
-              <h3 className="h4" style={{ color: "#ff372f" }}>Serving Veterans NATIONWIDE.</h3>
+              <h2 className="h2" style={{ color: "#2b2b2b" }}>
+                VA Home Loan Specialist
+              </h2>
+              <h3 className="h4" style={{ color: "#ff372f" }}>
+                Serving Veterans NATIONWIDE.
+              </h3>
               <p>
-                My Mission - To provide and assist all veterans and active duty military with ALL of
-                their VA Home Loan Financing Needs!
+                My mission is to provide and assist all veterans and active-duty military with all
+                their VA Home Loan financing needs.
               </p>
               <ul className="ul-style-1">
-                <li>Get a VA Loan.</li>
-                <li>I am here to help you achieve home ownership.</li>
-                <li>
-                  Call Me At <a href="tel:602-908-5849">602-908-5849</a>.
-                </li>
-                {/* <li>Do eiusmod tempor incididunt ut labore et dolore masit amet.</li> */}
+                <li>Choose your family’s dream home</li>
+                <li>Partner alongside a trusted advisor</li>
+                <li>I’ll walk with you through the home loan process</li>
               </ul>
               <Link to="/contact-me/" className="in-button">
                 CONTACT ME TODAY
@@ -96,13 +97,12 @@ const AboutArea = () => {
               {/* <h4>MY MISSION</h4> */}
               {/* <h3 className='h2'>VIDEO: Interview on 3TV</h3> */}
               <h3 className="h4">
-                VIDEO: Jimmy Vercellino talks about VA loans on Good Morning Arizona.
+                Jimmy Vercellino talks about VA Home Loans on Good Morning Arizona
               </h3>
               <ul className="ul-style-1">
-                <li>VA Loan misconceptions.</li>
-                <li>Upcoming legislation changes to VA Loans.</li>
-                <li>Why it's important to speak with a VA Loans Specialist.</li>
-                {/* <li>Do eiusmod tempor incididunt ut labore et dolore masit amet.</li> */}
+                <li>VA Loan misconceptions</li>
+                <li>New legislation for VA Loans</li>
+                <li>Why it's important to speak with a VA Loans Specialist</li>
               </ul>
               <button
                 className="in-button in-button-theme"

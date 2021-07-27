@@ -32,6 +32,7 @@ const ServicesArea = ({sectionTitle = 'Missing Title', sectionSubtitle, cardsCon
             <div className='section-title text-center'>
               {sectionSubtitle && <h6>{sectionSubtitle}</h6>}
               <h2>{sectionTitle}</h2>
+              <p>With a VA Home Loan Specialist, the process just got easier!</p>
             </div>
           </div>
         </div>

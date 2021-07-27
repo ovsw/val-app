@@ -43,48 +43,48 @@ const IndexPage = props => {
 
   const obtainLoanCardsContent = [
     {
-      title: '1 - Select a Home',
+      title: '1 - Choose your dream home',
       description: 'You select a Home and discuss the purchase with the seller or selling agent. Sign a purchase contract conditioned on approval of your VA home loan',
       icon: 'flaticon-life-insurence'
     },
     {
-      title: '2 - Select a lender',
+      title: '2 - Partner with a trusted lender',
       description: 'You select a lender and present them with your Certificate of Eligibility and complete a loan application ',
       icon: 'flaticon-life-insurence'
     },
     {
-      title: '3 - Credit Report & Appraisal',
+      title: '3 - Bring in a licensed appraiser',
       description: 'The lender will develop all credit and income information. They will also request VA to assign a licensed appraiser to determine the reasonable value for the property. A Certificate of Reasonable Value will be issued. Note: You may be required to pay for the credit report and appraisal unless the seller agrees to pay.',
       icon: 'flaticon-life-insurence'
     },
     {
-      title: '4 - Approval',
+      title: '4 - Wait for the loan decision',
       description: 'The lender will let you know the decision on the loan. You should be approved if the established value and your credit and income are acceptable',
       icon: 'flaticon-life-insurence'
     },
     {
-      title: '5 - Closing',
+      title: '5 - Celebrate the loan closing',
       description: 'You (and spouse) attend the loan closing. The lender or closing attorney will explain the loan terms and requirements as well as where and how to make the monthly payments. Sign the note, mortgage, and other related papers.',
       icon: 'flaticon-life-insurence'
     },
     {
-      title: '6 - Done',
+      title: '6 - Receive the guaranty',
       description: 'The loan is sent to VA for guaranty. Your Certificate of Eligibility is annotated to reflect the use of entitlement and returned to you.',
       icon: 'flaticon-life-insurence'
     }
   ]
   const faqContent = [
     {
-      question: 'Was the bankruptcy discharged more than 2 years ago?',
-      answer: '<p>If the bankruptcy was discharged more than 2 years ago, it may be disregarded.</p>'
+      question: 'What is a VA Home Loan?',
+      answer: '<p>These are special loans made by private lenders such as banks or mortgage companies and are designed specifically for veterans in mind. These work toward bringing the military families into homeownership and provide a house their family can live in for years to come.</p>'
     },
     {
-      question: 'Was the bankruptcy discharged within the last 1 to 2 years?',
-      answer: '<p>If the bankruptcy was discharged within the last 1 to 2 years, it is probably not possible to determine that you and/or your spouse are a satisfactory credit risk unless both of the following requirements are met: <br/> - you and/or your spouse have reestablished satisfactory credit, and<br/> - the bankruptcy was caused by circumstances beyond your and/or your spouses control (such as unemployment, medical bills, etc.)</p>'
+      question: 'What Types of VA Loans are Available?',
+      answer: '<p>VA Home Loans are categorized as fixed-rate mortgages (FRM), adjustable-rate mortgages (ARM) or a combination of the two. Each program is used to best meet the home buying needs of veterans and active-duty military.</p>'
     },
     {
-      question: 'Was the bankruptcy discharged within the past 12 months?',
-      answer: '<p>If the bankruptcy was discharged within the past 12 months, it will not generally be possible to determine that you and/or your spouse are satisfactory credit risks.</p>'
+      question: 'Can I Refinance a VA Loan?',
+      answer: '<p>Yes you can! Some worry that refinancing takes too much time and money, but fortunately the process is easy. Refinancing is simply the process of paying your existing loan with a new one through the help of an experienced VA Home Loan Specialist.</p>'
     }
   ]
 
@@ -99,8 +99,8 @@ const IndexPage = props => {
       <Hero />
       <AboutArea />
       <Highlights />
-      <ServicesArea sectionTitle='How Do I Obtain a VA Home Loan?' sectionSubtitle='6 Simple Steps' cardsContent={obtainLoanCardsContent} />
-      <FAQArea sectionTitle='Can I Get a VA Loan after Bankruptcy?' faqContent={faqContent} />
+      <ServicesArea sectionTitle='The VA Home Loan Journey' sectionSubtitle='6 Simple Steps' cardsContent={obtainLoanCardsContent} />
+      <FAQArea sectionTitle='Frequently Asked Questions' faqContent={faqContent} />
 
       {postNodes && (
         <BlogPostPreviewGrid
