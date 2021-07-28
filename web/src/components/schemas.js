@@ -42,7 +42,7 @@ export const professionalServiceSchema = {
   'name': 'VA Loan Specialist in Phoenix AZ Jimmy Vercellino',
   'url': 'https://www.valoansforvets.com/',
   'logo': 'https://www.valoansforvets.com/images/logo/logo.png',
-  'image': 'https://cdn.sanity.io/images/0x25ml7u/production/9bb96cd373561044f7c3159f22ac53df465bd0c7-5760x3840.jpg?w=700&h=467&fit=crop&fm=webp',
+  'image': 'https://cdn.sanity.io/images/s9pxp9z8/production/9bb96cd373561044f7c3159f22ac53df465bd0c7-5760x3840.jpg?w=700&h=467&fit=crop&fm=webp',
   'alternateName': 'VA Loan Specialist in Phoenix AZ Jimmy Vercellino',
   'priceRange': 'Affordable',
   'telephone': '602-908-5849 ',
