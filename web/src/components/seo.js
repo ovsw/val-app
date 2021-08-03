@@ -16,7 +16,7 @@ import {
 
 import config from '../../config/website'
 
-function SEO ({description, meta, title, image}) {
+function SEO ({description, meta, title, image, noIndex = false}) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -42,6 +42,8 @@ function SEO ({description, meta, title, image}) {
 
             <meta name='msapplication-TileColor' content={config.backgroundColor} />
             <meta name='theme-color' content={config.themeColor} />
+
+            {noIndex && <meta name='robots' content='noindex' />}
 
             <meta name='msapplication-config' content='/browserconfig.xml' />
             <meta name='description' content={metaDescription} />
