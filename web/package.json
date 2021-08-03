@@ -5,6 +5,7 @@
   "author": "OvS Websites <ovi@ovswebsites.com>",
   "scripts": {
     "build": "gatsby build",
+    "generate": "gatsby build && gatsby serve",
     "clean-cache": "gatsby clean",
     "dev": "npm run clean-cache && gatsby develop",
     "lint": "eslint .",
