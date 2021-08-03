@@ -193,7 +193,84 @@ module.exports = {
         overlayDrafts: !isProd
       }
     },
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        // exclude: ['/admin', '/confirmed'],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+
+            allSitePage {
+              edges {
+                node {
+                  path
+                  context {
+                    seoNoIndex
+                  }
+                }
+              }
+            }
+          }
+        `,
+        serialize: ({site, allSitePage}) => {
+          return allSitePage.edges
+            .filter(({node}) => (
+              node.context.seoNoIndex !== true
+            ))
+            .map(({node}) => {
+              return {
+                url: site.siteMetadata.siteUrl + node.path,
+                changefreq: 'daily',
+                priority: 0.7
+              }
+            })
+        },
+      }
+    },
+    // 'gatsby-plugin-advanced-sitemap',
+    // {
+    //   resolve: `gatsby-plugin-advanced-sitemap`,
+    //   options: {
+    //     // 1 query for each data type
+    //     query: `
+    //     {
+    //       allSanityPage {
+    //         edges {
+    //           node {
+    //             id
+    //             slug {
+    //               current
+    //             }
+    //           }
+    //         }
+    //       }
+    //       allSanityPost {
+    //         edges {
+    //           node {
+    //             id
+    //             slug {
+    //               current
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //     `,
+
+    //     exclude: [
+    //       `/dev-404-page`
+    //       //     /(\/)?hash-\S*/ // you can also pass valid RegExp to exclude internal tags for example
+    //     ],
+
+    //     createLinkInHead: true, // optional: create a link in the `<head>` of your site
+    //     addUncaughtPages: true // optional: will fill up pages that are not caught by queries and mapping and list them under `sitemap-pages.xml`
+    //   }
+    // },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
