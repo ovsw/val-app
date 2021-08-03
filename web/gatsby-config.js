@@ -35,7 +35,7 @@ module.exports = {
           },
           {
             title: 'Obtaining a VA Home Loan',
-            slug: '/va-pre-loan-faq/'
+            slug: '/obtaining-a-va-home-loan/'
           },
           {
             title: 'After Closing: VA Home Loan FAQ',
