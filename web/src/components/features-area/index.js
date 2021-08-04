@@ -24,7 +24,7 @@ const Highlights = () => {
               </span>
               <h4>What is a VA Home Loan?</h4>
               <p>VA guaranteed loans are made by private lenders, such as banks, savings & loans, or mortgage companies to eligible veterans for the purchase of a home which must be for their own personal occupancy. The guaranty means the lender is protected against loss if you or a later owner fail to repay the loan. The guaranty replaces the protection the lender normally receives by requiring a down payment.</p>
-              <Link to='/va-pre-loan-faq/' type='submit' className='in-button mt-5'>Learn More</Link>
+              <Link to='/obtaining-a-va-home-loan/' type='submit' className='in-button mt-5'>Learn More</Link>
             </div>
           </div>
           <div className='col-lg-4 col-md-6 col-12'>
