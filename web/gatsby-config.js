@@ -288,6 +288,7 @@ module.exports = {
         // sampleRate: 5,
         // siteSpeedSampleRate: 10
       }
-    }
+    },
+    'gatsby-plugin-netlify'
   ]
 }
