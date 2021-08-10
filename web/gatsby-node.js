@@ -50,7 +50,7 @@ async function createBlogPages(graphql, actions, reporter) {
 
   // create blog post pages
   postEdges
-    .filter((edge) => !isFuture(edge.node.publishedAt))
+    .filter(edge => !isFuture(edge.node.publishedAt))
     .forEach((edge, index) => {
       const { id, slug = {}, seoNoIndex } = edge.node; // publishedAt
       // const dateSegment = format(publishedAt, 'YYYY/MM')
@@ -62,7 +62,7 @@ async function createBlogPages(graphql, actions, reporter) {
       createPage({
         path,
         component: require.resolve("./src/templates/blog-post.js"),
-        context: { id, seoNoIndex },
+        context: { id, seoNoIndex }
       });
     });
 
@@ -81,8 +81,8 @@ async function createBlogPages(graphql, actions, reporter) {
         limit: postsPerPage,
         skip: i * postsPerPage,
         numPages,
-        currentPage: i + 1,
-      },
+        currentPage: i + 1
+      }
     });
   });
 
@@ -90,12 +90,12 @@ async function createBlogPages(graphql, actions, reporter) {
 
   let categoriesWithPostsInfo = []; // empty array that will contain objects, each object being a category and its posts
 
-  categoryEdges.map((category) => {
+  categoryEdges.map(category => {
     const currentCatId = category.node.id;
     const currentCatSlug = category.node.slug.current; // get the slug of the current category
     let postsInThisCat = 0; // initialize empty array to hold all the posts in this category
 
-    postEdges.map((post) => {
+    postEdges.map(post => {
       // go through all posts
       const postCatSlug = post.node.categories[0].slug.current;
       if (postCatSlug === currentCatSlug) {
@@ -107,7 +107,7 @@ async function createBlogPages(graphql, actions, reporter) {
     const categoryWithItsPosts = {
       categoryId: currentCatId,
       categorySlug: currentCatSlug,
-      categoryNumberOfPosts: postsInThisCat,
+      categoryNumberOfPosts: postsInThisCat
     };
     // add this category
     categoriesWithPostsInfo = categoriesWithPostsInfo.concat(categoryWithItsPosts);
@@ -132,8 +132,8 @@ async function createBlogPages(graphql, actions, reporter) {
           catNumPages,
           catCurrentPage: i + 1,
           categoryId,
-          categorySlug,
-        },
+          categorySlug
+        }
       });
     });
   });
@@ -170,7 +170,7 @@ async function createGenericPages(graphql, actions, reporter) {
     createPage({
       path,
       component: require.resolve("./src/templates/generic-page.js"),
-      context: { id, seoNoIndex },
+      context: { id, seoNoIndex }
     });
   });
 }
@@ -178,4 +178,37 @@ async function createGenericPages(graphql, actions, reporter) {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createBlogPages(graphql, actions, reporter);
   await createGenericPages(graphql, actions, reporter);
+
+  const { createRedirect } = actions;
+
+  const redirectsQuery = await graphql(`
+    {
+      sanityRedirects(_id: { eq: "redirects" }) {
+        list {
+          toPath
+          fromPath
+          isTemporary
+        }
+      }
+    }
+  `);
+
+  if (redirectsQuery.errors) {
+    throw redirectsQuery.errors;
+  }
+
+  // process redirects from Sanity
+  const redirectsList = redirectsQuery.data.sanityRedirects.list || [];
+
+  redirectsList.forEach(({ fromPath, toPath, isTemporary }) => {
+    reporter.info(`Creating ${isTemporary ? "302" : "301"} redirect: ${fromPath} -> ${toPath}`);
+
+    const isPermanent = !isTemporary;
+
+    createRedirect({
+      fromPath,
+      toPath,
+      isPermanent
+    });
+  });
 };
