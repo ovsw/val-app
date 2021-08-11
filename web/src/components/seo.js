@@ -16,7 +16,8 @@ import {
 
 import config from '../../config/website'
 
-function SEO ({description, meta, title, image, noIndex = false}) {
+function SEO ({description, meta, title, image, noIndex = false, slug = ''}) {
+
   return (
     <StaticQuery
       query={detailsQuery}
@@ -39,6 +40,8 @@ function SEO ({description, meta, title, image, noIndex = false}) {
             <link rel='mask-icon' href='/favicons/safari-pinned-tab.svg' color={config.themeColor} />
             <link rel='icon' type='image/png' sizes='16x16' href='/favicons/favicon-16x16.png' />
             <link rel='shortcut icon' href='/favicon.ico' />
+
+            <link rel='canonical' href={`${config.siteUrl}/${slug}${slug ? '/' : ''}`} />
 
             <meta name='msapplication-TileColor' content={config.backgroundColor} />
             <meta name='theme-color' content={config.themeColor} />

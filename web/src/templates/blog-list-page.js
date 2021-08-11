@@ -27,7 +27,7 @@ const BlogPage = props => {
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {/* {page && <SEO title='Blog Posts' />} */}
+      <SEO title='Blog | VA Loan Specialist | VA Loans for Vets' description='Check out our recent blog posts about VA Home Loans for Veterans and active members of the armed forces.' slug='blog' />
 
       {errors && (
         <Container>

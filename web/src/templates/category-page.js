@@ -28,7 +28,7 @@ const CategoryPageTemplate = props => {
   return (
     <Layout>
       {errors && <SEO seoTitle='GraphQL Error' />}
-      {page && <SEO seoTitle={page.seoTitle || page.title || 'Untitled'} description={page.seoDescription || ''} />}
+      {page && <SEO seoTitle={page.seoTitle || page.title || 'Untitled'} description={page.seoDescription || ''} slug={categorySlug} />}
 
       {errors && (
         <Container>
