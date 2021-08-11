@@ -16,6 +16,7 @@ import AboutArea from '../components/about-area'
 import Highlights from '../components/features-area'
 import ServicesArea from '../components/services-area'
 import FAQArea from '../components/faq-area'
+import HomeTestimonials from '../components/HomeTestimonials'
 
 const IndexPage = props => {
   const {data, errors} = props
@@ -101,6 +102,7 @@ const IndexPage = props => {
       <Highlights />
       <ServicesArea sectionTitle='The VA Home Loan Journey' sectionSubtitle='6 Simple Steps' cardsContent={obtainLoanCardsContent} />
       <FAQArea sectionTitle='Frequently Asked Questions' faqContent={faqContent} />
+      <HomeTestimonials />
 
       {postNodes && (
         <BlogPostPreviewGrid
