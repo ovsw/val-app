@@ -46,7 +46,7 @@ function BlogPost (props) {
 
         <div className='admin-aouthor'>
           <div className='admin-image'>
-            <img src='/images/blog/author-image/author-image-1.png' alt='' />
+            <img src='/images/blog/author-image/author-image-1.png' alt='VA loan specialist Jimmy Vercellino' />
           </div>
           <div className='admin-info'>
             <div className='name'>
