@@ -15,8 +15,8 @@ const GenericPageTemplate = props => {
 
   return (
     <Layout>
-      {errors && <SEO seoTitle='GraphQL Error' />}
-      {page && <SEO seoTitle={page.seoTitle || page.title || 'Untitled'} description={page.seoDescription || ''} noIndex={page.seoNoIndex != null} slug={page.slug.current} />}
+      {errors && <SEO title='GraphQL Error' />}
+      {page && <SEO title={page.seoTitle || page.title || 'Untitled'} description={page.seoDescription || ''} noIndex={page.seoNoIndex != null} slug={page.slug.current} />}
 
       {errors && (
         <Container>
