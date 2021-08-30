@@ -93,7 +93,7 @@ and nationwide. If you want to settle down and provide your family with the home
                     <img src='/images/logo/GWBLogoTeamVERCELLINO-400.jpg' alt='GoldWater Bank Logo' />
                   </div>
                   <p>Goldwater Bank N.A. – Mortgage Division,<br /> NMLS #452955.</p>
-                  <p>5050 North 40th Street, Ste 260,<br /> Phoenix AZ 85018 <br />Phone: <a href='tel:602-908-5849'>602-908-5849</a> | Fax: 480-569-1363</p>
+                  <p>3602 E Campbell Ave,<br /> Phoenix, AZ 85018 <br />Phone: <a href='tel:602-908-5849'>602-908-5849</a> | Fax: 480-569-1363</p>
                   <ul className='footer-socialicons'>
                     <SocialLinks />
                   </ul>
